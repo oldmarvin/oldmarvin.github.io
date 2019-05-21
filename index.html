@@ -286,6 +286,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/七牛云图片存储功能使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/21/七牛云图片存储功能使用/" class="post-title-link" itemprop="url">七牛云图片存储功能使用，使用页面与python编程上传</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-21 17:48:23 / Modified: 17:50:28" itemprop="dateCreated datePublished" datetime="2019-05-21T17:48:23+08:00">2019-05-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="七牛云图片存储功能使用，使用页面与python编程上传"><a href="#七牛云图片存储功能使用，使用页面与python编程上传" class="headerlink" title="七牛云图片存储功能使用，使用页面与python编程上传"></a>七牛云图片存储功能使用，使用页面与python编程上传</h1><p>使用七牛云来存储文件</p>
+<h2 id="注册七牛云账号并上传文件"><a href="#注册七牛云账号并上传文件" class="headerlink" title="注册七牛云账号并上传文件"></a>注册七牛云账号并上传文件</h2><p>在网站<a href="https://www.qiniu.com/" target="_blank" rel="noopener">https://www.qiniu.com/</a>注册账号，并且进行实名验证，这样就可以获得10G的免费图片空间。</p>
+<p>新建存储空间之后便能够使用了。<br>[<a href="http://prud1ioef.bkt.clouddn.com/20190521/j1.JPG]" target="_blank" rel="noopener">http://prud1ioef.bkt.clouddn.com/20190521/j1.JPG]</a></p>
+<p>图片文件上传，在菜单上点击<code>内容管理</code>即可以上传，一般来说会将日期作为上传时候的路径，以便于区分。上传之后，可以点击外链来获取图片的链接地址。</p>
+<h2 id="Python进行图片上传"><a href="#Python进行图片上传" class="headerlink" title="Python进行图片上传"></a>Python进行图片上传</h2><p>官方文档：<a href="https://developer.qiniu.com/kodo/sdk/1242/python" target="_blank" rel="noopener">https://developer.qiniu.com/kodo/sdk/1242/python</a></p>
+<p>1、首先安装七牛云包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install qiniu</span><br></pre></td></tr></table></figure>
+<p>2、获取开发者 Access Key 和 Secret Key。这两个key在注册后会在个人中心提供给我们的。点击右上角的个人图标，进入个人空间获得</p>
+<p>3、获取存储空间的名字bucket_name</p>
+<p>4、域名：这个域名如果不指定的话，七牛会给我们一个测试域名，我们暂时可以用这个测试域名，像我的域名是：<a href="prud1ioef.bkt.clouddn.com">prud1ioef.bkt.clouddn.com</a>，这个颜色配置要说一下，并不明显，一开始并不知道这是系统给我们留的域名。</p>
+<p>5、进行python编程：</p>
+<p>创建文件：qiniuupload.py。这里有一个小坑，创建的文件名不能是qiniu.py，否则会报一些错误。</p>
+<pre><code>from qiniu import Auth, put_file, etag
+import qiniu.config
+
+access_key = &apos;s6uGI8WQZFOTNWr-qnH2************&apos;#替换成自己的AK
+secret_key = &apos;ttFRNka2XfEuGXe73ns7************&apos;#替换成自己的SK
+url = &apos;http://prud1ioef.bkt.clouddn.com&apos;
+bucket_name = &apos;marvin&apos;
+
+q = Auth(access_key, secret_key)
+def qiniu_upload(key, localfile):
+    token = q.upload_token(bucket_name, key, 3600)
+    ret, info = qiniu.put_file(token, key, localfile)
+    if ret:
+        return &apos;{0}/{1}&apos;.format(url, ret[&apos;key&apos;])
+    else:
+        raise UploadError(&apos;上传失败，请重试&apos;)
+
+key = &apos;avatar.jpg&apos;
+localfile = &apos;C:/Users/MarvinPC2/Desktop/avatar.jpg&apos;
+res = qiniu_upload(key, localfile)
+print(res)
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>1、七牛云可以免费提供10G的存储</p>
+<p>2、上传图片的方法，可以采用系统本身自带的<code>内容管理</code>功能</p>
+<p>3、python编写上传接口的方法</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -460,7 +638,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
