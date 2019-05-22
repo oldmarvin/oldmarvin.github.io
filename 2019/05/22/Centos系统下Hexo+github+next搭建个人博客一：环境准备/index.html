@@ -96,17 +96,21 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="Centos系统下Hexo+github+next搭建个人博客一：环境准备 目标是搭建一个个人使用的博客，在参考了很多路线之后，自己做了非常多的尝试。目前网络上的参考文章的基本可能情况有以下几种： 客户端选择：windows本地，centos直接做客户端 服务器端选择：centos做服务器，gitpage做服务器 本文是探索过程的记录，将自己的探索记录分为最主要的几个部分记录一下。 阿里云的cen">
+<meta name="keywords" content="centos,hexo,nginx,next,github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/05/21/hello-world/index.html">
+<meta property="og:title" content="Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文">
+<meta property="og:url" content="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客一：环境准备/index.html">
 <meta property="og:site_name" content="Marvin&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Centos系统下Hexo+github+next搭建个人博客一：环境准备 目标是搭建一个个人使用的博客，在参考了很多路线之后，自己做了非常多的尝试。目前网络上的参考文章的基本可能情况有以下几种： 客户端选择：windows本地，centos直接做客户端 服务器端选择：centos做服务器，gitpage做服务器 本文是探索过程的记录，将自己的探索记录分为最主要的几个部分记录一下。 阿里云的cen">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-21T04:17:30.827Z">
+<meta property="og:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J01.JPG">
+<meta property="og:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J03.JPG">
+<meta property="og:updated_time" content="2019-05-22T08:31:44.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文">
+<meta name="twitter:description" content="Centos系统下Hexo+github+next搭建个人博客一：环境准备 目标是搭建一个个人使用的博客，在参考了很多路线之后，自己做了非常多的尝试。目前网络上的参考文章的基本可能情况有以下几种： 客户端选择：windows本地，centos直接做客户端 服务器端选择：centos做服务器，gitpage做服务器 本文是探索过程的记录，将自己的探索记录分为最主要的几个部分记录一下。 阿里云的cen">
+<meta name="twitter:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J01.JPG">
 
 
 
@@ -114,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/21/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客一：环境准备/">
 
 
 
@@ -124,7 +128,7 @@
   };
 </script>
 
-  <title>Hello World | Marvin's blog</title>
+  <title>Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文 | Marvin's blog</title>
   
 
 
@@ -289,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客一：环境准备/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Marvin Cai">
@@ -306,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文
 
               
             
@@ -332,9 +336,13 @@
                 
               
 
-              <time title="Created: 2019-05-21 12:17:30" itemprop="dateCreated datePublished" datetime="2019-05-21T12:17:30+08:00">2019-05-21</time>
+              <time title="Created: 2019-05-22 14:25:09 / Modified: 16:31:44" itemprop="dateCreated datePublished" datetime="2019-05-22T14:25:09+08:00">2019-05-22</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -367,15 +375,34 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Centos系统下Hexo-github-next搭建个人博客一：环境准备"><a href="#Centos系统下Hexo-github-next搭建个人博客一：环境准备" class="headerlink" title="Centos系统下Hexo+github+next搭建个人博客一：环境准备"></a>Centos系统下Hexo+github+next搭建个人博客一：环境准备</h1><hr>
+<p>目标是搭建一个个人使用的博客，在参考了很多路线之后，自己做了非常多的尝试。目前网络上的参考文章的基本可能情况有以下几种：</p>
+<p>客户端选择：windows本地，centos直接做客户端</p>
+<p>服务器端选择：centos做服务器，gitpage做服务器</p>
+<p>本文是探索过程的记录，将自己的探索记录分为最主要的几个部分记录一下。</p>
+<h2 id="阿里云的centos设置"><a href="#阿里云的centos设置" class="headerlink" title="阿里云的centos设置"></a>阿里云的centos设置</h2><p>刚好我购买的服务器是阿里云，安装了centos系统。在阿里云的控制台进行一下设置，开放4000端口与80端口。具体步骤如下：</p>
+<p>1、进入阿里云管理控制台，选择管理实例</p>
+<p>2、点击本实例安全组，选择配置规则</p>
+<p>3、点击右上角的添加安全组规则</p>
+<p>4、依次将80端口和4000端口添加进去，如下图，注意IP地址的部分阿里云要求是0.0.0.0/0的格式。</p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J01.JPG" alt="阿里云端口开放配置图"></p>
+<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>Node.js 是运行在服务端的 JavaScript, 是基于 Chrome JavaScript V8 引擎建立的平台。Hexo基于Node.js，所以安装Node.js是必须的，具体步骤如下：</p>
+<p>下载安装包</p>
+<pre><code>wget https://nodejs.org/dist/v6.10.1/node-v6.10.1-linux-x64.tar.xz
+</code></pre><p>解压缩改名放到/usr/local</p>
+<pre><code>tar xvJf node-v6.10.1-linux-x64.tar.xz
+mv node-v6.10.1-linux-x64 /usr/local/node-v6
+</code></pre><p>软链接到 /bin 目录</p>
+<pre><code>ln -s /usr/local/node-v6/bin/node /bin/node
+ln -s /usr/local/node-v6/bin/npm /bin/npm
+</code></pre><p>配置环境变量：将 /usr/local/node-v6/bin 目录添加到 $PATH 环境变量中可以方便地使用通过 npm 全局安装的第三方工具</p>
+<pre><code>echo &apos;export PATH=/usr/local/node-v6/bin:$PATH&apos; &gt;&gt; /etc/profile
+</code></pre><p>使环境变量生效</p>
+<pre><code>source /etc/profile
+</code></pre><p>测试是否安装成功</p>
+<pre><code>node -v
+npm -v
+</code></pre><p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J03.JPG" alt="nodejs检查"></p>
 
       
     </div>
@@ -397,6 +424,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/centos-hexo-nginx-next-github/" rel="tag"># centos,hexo,nginx,next,github</a>
+          
+        </div>
+      
 
       
       
@@ -406,14 +439,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/21/七牛云图片存储功能使用/" rel="next" title="七牛云图片存储功能使用，使用页面与python编程上传">
+                <i class="fa fa-chevron-left"></i> 七牛云图片存储功能使用，使用页面与python编程上传
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/21/七牛云图片存储功能使用/" rel="prev" title="七牛云图片存储功能使用，使用页面与python编程上传">
-                七牛云图片存储功能使用，使用页面与python编程上传 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/22/Centos系统下Hexo-github-next搭建个人博客二：git的基本操作/" rel="prev" title="Centos系统下Hexo+github+next搭建个人博客二：git的基本操作.md">
+                Centos系统下Hexo+github+next搭建个人博客二：git的基本操作.md <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Centos系统下Hexo-github-next搭建个人博客一：环境准备"><span class="nav-number">1.</span> <span class="nav-text">Centos系统下Hexo+github+next搭建个人博客一：环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里云的centos设置"><span class="nav-number">1.1.</span> <span class="nav-text">阿里云的centos设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Node-js"><span class="nav-number">1.2.</span> <span class="nav-text">安装Node.js</span></a></li></ol></li></ol></div>
             
 
           </div>
