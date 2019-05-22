@@ -286,6 +286,828 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo-github-next搭建个人博客五：发表markdown博文/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/Centos系统下Hexo-github-next搭建个人博客五：发表markdown博文/" class="post-title-link" itemprop="url">Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-22 16:25:09 / Modified: 16:28:25" itemprop="dateCreated datePublished" datetime="2019-05-22T16:25:09+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Centos系统下Hexo-github-next搭建个人博客五：发表markdown博文"><a href="#Centos系统下Hexo-github-next搭建个人博客五：发表markdown博文" class="headerlink" title="Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文"></a>Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文</h1><hr>
+<p>##创建文章</p>
+<p>你可以执行下列命令来创建一篇新文章。</p>
+<pre><code>$ hexo new post &lt;title&gt;
+</code></pre><p>post可以不写，因为其为layout的默认值，其余layout还有page（页面）和draft（草稿）。<br>之后，你的source/_post文件夹下会产生一个<title>.md的文件。也就是说，这里不需要加一个.md</title></p>
+<h2 id="使用markdownpad2进行博文书写"><a href="#使用markdownpad2进行博文书写" class="headerlink" title="使用markdownpad2进行博文书写"></a>使用markdownpad2进行博文书写</h2><p>在windows下进行博文写作。markdownpad2是公认的较好的书写工具。可以下载个破解版。</p>
+<p>以下是基本的Markdown语法。</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><p>列表</p>
+<ul>
+<li>无序列表1</li>
+<li>无序列表2</li>
+<li>无序列表3</li>
+</ul>
+<ol>
+<li>有序列表1 //注意1.后面有空格</li>
+<li>有序列表2</li>
+<li>有序列表3<br>引用</li>
+</ol>
+<blockquote>
+<p>这个是引用</p>
+</blockquote>
+<p>粗体</p>
+<p><strong>这个是粗体</strong></p>
+<p><em>这个是斜体</em></p>
+<p><strong><em>这个是粗体加斜体</em></strong></p>
+<p><code>这个是重点引用</code></p>
+<p>链接和图片</p>
+<p><a href="http://prud1ioef.bkt.clouddn.com/20190522/J05.JPG" title="optional title" target="_blank" rel="noopener">link text</a></p>
+<p>其中的optional title是鼠标放在上面时候显示的字体</p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J05.JPG" alt="图片描述"></p>
+<p>代码</p>
+<p><code>java代码</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python代码写在这里</span><br></pre></td></tr></table></figure>
+<p>分割线</p>
+<hr>
+<p>————————————</p>
+<hr>
+<p>markdown文档转为word,pdf</p>
+<pre><code>使用Pandoc https://www.zhihu.com/question/22972843/answer/30096928
+安装Pandoc,使用Typora http://blog.csdn.net/u012814856/article/details/69258511
+</code></pre><h2 id="通过xshell的vim将markdown复制到页面上，并发布。"><a href="#通过xshell的vim将markdown复制到页面上，并发布。" class="headerlink" title="通过xshell的vim将markdown复制到页面上，并发布。"></a>通过xshell的vim将markdown复制到页面上，并发布。</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo-github-next搭建个人博客四：hexo-next博客美化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/Centos系统下Hexo-github-next搭建个人博客四：hexo-next博客美化/" class="post-title-link" itemprop="url">Centos系统下Hexo+github+next搭建个人博客四：hexo+next博客美化</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-22 16:25:09 / Modified: 16:27:23" itemprop="dateCreated datePublished" datetime="2019-05-22T16:25:09+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Centos系统下Hexo-github-next搭建个人博客四：hexo-next博客美化"><a href="#Centos系统下Hexo-github-next搭建个人博客四：hexo-next博客美化" class="headerlink" title="Centos系统下Hexo+github+next搭建个人博客四：hexo+next博客美化"></a>Centos系统下Hexo+github+next搭建个人博客四：hexo+next博客美化</h1><hr>
+<p>在上篇中，博客基本已经出来了，接下来进行一定的美化工作。</p>
+<h2 id="将本地的Hexo文件更新到Github的库中"><a href="#将本地的Hexo文件更新到Github的库中" class="headerlink" title="将本地的Hexo文件更新到Github的库中"></a>将本地的Hexo文件更新到Github的库中</h2><p>在上一篇中，已经将博客部署到了centos服务器。该部署出来的服务器，在chrome浏览器中可以正常显示，但是在360极速浏览器，IE等的显示不正常。这一点我至今没有找到原因。</p>
+<p>为了试验这种情况，我试着将本地的Hexo文件更新到Github的库中。</p>
+<p>关于SSHkey的配置，之前我在第二篇中已经说明了，接下来就是配置完Key后的操作，如果还没有配的话，请查阅博文《Centos系统下Hexo+github+next搭建个人博客二：git的基本操作》</p>
+<p>1、登录Github打开自己的项目 oldmarvin.github.io</p>
+<p>2、点击SSH，选择SSH类型地址，复制地址出来。</p>
+<p>3、打开本地的_config.yml，找到deploy段进行修改。</p>
+<pre><code>deploy:
+  type: git
+  repository: https://github.com/oldmarvin/oldmarvin.github.io.git
+  branch: master
+</code></pre><p>4、在Hexo文件夹下执行</p>
+<pre><code>hexo g
+hexo d
+</code></pre><p>执行完之后会让你输入github的账号和密码，输入完后就可以登录我们自己的部署在Github Pages服务器上的博客了。对应的地址是 username.github.io(我的是：olamarvin.github.io)。</p>
+<p>假如这时候，报错 ERROR Deployer not found: git，那么就是你的deployer没有安装成功，你需要执行如下命令再安装一次：</p>
+<pre><code>npm install hexo-deployer-git --save
+hexo g -d
+</code></pre><p>你的博客就部署到Github上了。</p>
+<p>5、在浏览器上输入自己的主页地址<a href="https://oldmarvin.github.io" target="_blank" rel="noopener">https://oldmarvin.github.io</a></p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J07.JPG" alt="部署在gitpage的页面"></p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>进入Hexo的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官网主题专栏</a>,挑选喜欢的主题，然后进入到它的github地址，只要把这个地址复制下来，例如选择hexo-theme-next这个主题，这个主题也是使用率极高的主题。</p>
+<p>克隆主题</p>
+<pre><code>cd /usr/local/oldmarvin.github.io
+git clone https://github.com/theme-next/hexo-theme-next themes/next 
+</code></pre><h2 id="修改Hexo配置文件"><a href="#修改Hexo配置文件" class="headerlink" title="修改Hexo配置文件"></a>修改Hexo配置文件</h2><p>下载完成后，打开Hexo文件夹下的配置文件_config.yml，修改参数为：theme: hexo-theme-next</p>
+<pre><code>hexo g
+hexo s
+</code></pre><p>如果效果满意，将它部署到Github上。</p>
+<pre><code>hexo clean   (必须要，不然有时因为缓存问题，服务器更新不了主题)
+hexo g -d
+</code></pre><p>-</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo-github-next搭建个人博客三：hexo-nginx博客初现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/Centos系统下Hexo-github-next搭建个人博客三：hexo-nginx博客初现/" class="post-title-link" itemprop="url">Centos系统下Hexo+github+next搭建个人博客三：hexo+nginx博客初现.md</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-22 16:20:40 / Modified: 16:24:34" itemprop="dateCreated datePublished" datetime="2019-05-22T16:20:40+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><pre><code>npm install hexo-cli -g
+npm install hexo-deployer-git --save
+</code></pre><p>第一句是安装hexo，第二句是安装hexo部署到git page的deployer，两个都需要安装。</p>
+<p>查询是否安装成功：</p>
+<pre><code>hexo version
+</code></pre><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。像我是在/usr/local创建文件夹</p>
+<pre><code>hexo init oldmarvin
+cd oldmarvin
+</code></pre><p>新建完成后，指定文件夹的目录如下：</p>
+<pre><code>├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+└── public
+</code></pre><p>对这些文件说明如下：</p>
+<p>1、_config.yml是YAML格式文件，也是Hexo的站点配置文件</p>
+<p>2、package.json配置hexo运行需要的node.js包，不用手动更改 </p>
+<p>3、scaffolds是模板文件夹。这个“模板”就是指新建的markdown文件的模板，每新建一个markdown文件（由于Hexo使用markdown语法，在渲染生成静态HTML页面之前，源文件都是markdown文件），就会包含对应模板的内容。 </p>
+<p>该文件夹内有三个模板： </p>
+<ul>
+<li>draft.md，草稿的模板 </li>
+<li>page.md，页面的模板 </li>
+<li>post.md，文章的模板</li>
+</ul>
+<p>4、source是资源文件夹，资源文件夹是存放用户资源的地方。除posts 文件夹之外，开头命名为 (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。 </p>
+<p>5、themes是主题文件夹。Hexo 会根据主题来生成静态页面。</p>
+<p>6、public，该文件夹中的文件最终会被上传到github之中</p>
+<h2 id="几个最主要的命令"><a href="#几个最主要的命令" class="headerlink" title="几个最主要的命令"></a>几个最主要的命令</h2><pre><code>hexo g：hexo generate
+hexo c：hexo clean
+hexo s：hexo server
+hexo d：hexo deploy
+</code></pre><p>输入hexo generate命令来生成静态文件，生成的静态文件存放在public文件夹中</p>
+<p>输入hexo server(可简写为hexo s)来启动服务器，默认情况下，端口号为4000，上文已经开启过此端口号，所以服务器启动成功后，在浏览器中输入http://&lt;你的IP地址&gt;:4000，即可看到第一次运行的状况： 按Ctrl+C则退出该运行服务器。</p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J05.JPG" alt="hexo实始页面"></p>
+<h2 id="安装并配置Nginx"><a href="#安装并配置Nginx" class="headerlink" title="安装并配置Nginx"></a>安装并配置Nginx</h2><p>安装Nginx主要是想让网站能随时随地访问，不像上文中hexo提供的server，只能手动输入命令后才能访问到网站。</p>
+<p>1、安装gcc</p>
+<pre><code>yum -y install gcc
+gcc --version
+</code></pre><p>2、安装g++</p>
+<p>需要注意的是安装的命令是gcc-c++而不是g++</p>
+<pre><code>yum -y install gcc-c++
+g++ --version
+</code></pre><p>3、pcre安装</p>
+<pre><code>tar -zxvf pcre-8.42.tar.gz    
+cd pcre-8.42/    
+./configure    
+make    
+make install
+</code></pre><p>4、zlib安装</p>
+<pre><code>tar -zxvf zlib-1.2.11.tar.gz    
+cd zlib-1.2.11/    
+./configure    
+make    
+make install
+</code></pre><p>5、openssl安装</p>
+<pre><code>tar -zxvf openssl-1.1.0h.tar.gz    
+cd openssl-1.1.0h/    
+./config    
+make    
+make install
+</code></pre><p>6、nginx安装</p>
+<pre><code>tar -zxvf nginx-1.14.0.tar.gz    
+cd nginx-1.14.0/    
+./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-pcre=../pcre-8.42 --with-zlib=../zlib-1.2.11 --with-openssl=../openssl-1.1.0h
+make    
+make install
+</code></pre><p>7、测试nginx是否安装成功</p>
+<pre><code>cd /usr/local/nginx/sbin
+./nginx
+</code></pre><p>浏览器访问如：<a href="http://47.106.35.83/（这是机器的IP地址），如果能正常显示nginx首页，则表示安装成功。" target="_blank" rel="noopener">http://47.106.35.83/（这是机器的IP地址），如果能正常显示nginx首页，则表示安装成功。</a></p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J06.JPG" alt="ngix"></p>
+<p>8、nginx的其他操作</p>
+<p>我在实际中用到的nginx操作有这些：</p>
+<pre><code>#查找目录：
+find / -name &quot;nginx*&quot;
+
+#做好命令的转接
+ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+
+#修改nginx.conf，最主要是加上一句，这样就可以把其他系统的Nginx配置文件引入进来：
+include /usr/local/nginx/conf/conf.d/*.conf;
+
+#创建conf.d目录，并创建pj.conf文件
+mkdir conf.d
+touch pj.conf
+vim pj.conf
+
+#启动nginx
+nginx -c /usr/local/nginx/conf/nginx.conf    
+
+#重启nginx
+./nginx -s reload 
+
+#修改nginx最大上传文件限制：
+#参考文章：https://www.cnblogs.com/xiaoliu66007/p/6397917.html
+#增加这句话：
+location /
+{
+client_max_body_size 1000M;
+}
+
+#停止nginx: 
+ps –ef|grep nginx
+kill -QUIT 2072
+kill -QUIT 主进程号（上面ps命令看到的带master字样的进程号）
+</code></pre><h2 id="配置静态服务器访问路径"><a href="#配置静态服务器访问路径" class="headerlink" title="配置静态服务器访问路径"></a>配置静态服务器访问路径</h2><p>Nginx 需要配置静态资源的路径信息才能通过 url 正确访问到服务器上的静态资源。<br>即是要将HEXO生成的静态资源的路径放置到Nginx的访问路径</p>
+<p>打开 Nginx 的默认配置文件 /etc/nginx/nginx.conf ，将默认的 root /usr/share/nginx/html 修改为: root /…/<folder>/public （此处可能在此配置文件的42行，<folder>即为hexo初始化的文件夹）</folder></folder></p>
+<p>修改完成后保存，输入以下命令重启Nginx：</p>
+<pre><code>nginx -s reload    
+</code></pre><p>此时再次访问你的IP地址，若显示上文的hexo初次运行的样子，则说明配置成功。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo-github-next搭建个人博客二：git的基本操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/22/Centos系统下Hexo-github-next搭建个人博客二：git的基本操作/" class="post-title-link" itemprop="url">Centos系统下Hexo+github+next搭建个人博客二：git的基本操作.md</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-22 16:19:07 / Modified: 16:20:09" itemprop="dateCreated datePublished" datetime="2019-05-22T16:19:07+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>安装命令：</p>
+<pre><code>yum –y install git
+</code></pre><p>查询是否成功命令：</p>
+<pre><code>git version
+</code></pre><p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J02.JPG" alt="git检查"></p>
+<h2 id="在github上注册账号"><a href="#在github上注册账号" class="headerlink" title="在github上注册账号"></a>在github上注册账号</h2><p>在github上新建一个名为 <code>你的用户名.github.io 的仓库</code></p>
+<p>像我的github用户名是<code>oldmarvin</code>，就新建 <code>oldmarvin.github.io</code> 的仓库，这里强调必须是按照这样的格式命名，其它名称无效），将来你的网站访问地址就是 <code>http://oldmarvin.github.io</code> 了。由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
+<h2 id="配置sshkey，使git可以上传"><a href="#配置sshkey，使git可以上传" class="headerlink" title="配置sshkey，使git可以上传"></a>配置sshkey，使git可以上传</h2><p>配置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。操作如下：</p>
+<p>1、看看是否存在SSH密钥(keys)，在centos上运行</p>
+<pre><code>$ cd ~/. ssh 
+</code></pre><p>如果能够进入目录说明本机上已经有sshkey，否则需要创建一个</p>
+<p>2、生成ssh-key，填入自己的邮箱</p>
+<pre><code>ssh-keygen -t rsa -C &quot;xxxxxx@sina.com&quot;
+</code></pre><p>中间需要按三次回车确认。</p>
+<p>3、在GitHub账户中添加你的公钥</p>
+<p>运行如下命令，将公钥的内容复制出来。</p>
+<pre><code>cd ~/.ssh
+ls
+cat id_rsa.pub
+</code></pre><p>如果你是在xshell中运行命令，可以按住 <code>ctrl+insert</code> 进行复制。</p>
+<p>4、接着，登陆GitHub,进入你的Account Settings，选择SSH Keys，粘贴密钥，添加即可</p>
+<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J04.JPG" alt="sshkey设置"></p>
+<p>5、测试是否配置成功</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>这个命令不需要修改，直接打进去就好。</p>
+<pre><code>[root@iZuf60c5nb7ulqwzl2jwbsZ .ssh]# ssh -T git@github.com
+The authenticity of host &apos;github.com (13.229.188.59)&apos; can&apos;t be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added &apos;github.com,13.229.188.59&apos; (RSA) to the list of known hosts.
+Hi olamarvin! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre><p>中间需要键入一次<code>yes</code>，出现这个打招呼届面就是成功了。</p>
+<h2 id="基本的git操作"><a href="#基本的git操作" class="headerlink" title="基本的git操作"></a>基本的git操作</h2><p>1、远程下载别人的git代码</p>
+<pre><code>git clone https://github.com/theme-next/hexo-theme-next themes/next
+</code></pre><p>2、设置本地的git账号用户名</p>
+<p>输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字根据自己的喜好自己取，而不是GitHub的昵称。</p>
+<pre><code>$ git config --global user.name &quot;oldmarvin&quot; //用户名
+$ git config --global user.email  &quot;marvincai@sina.com&quot;//填写自己的邮箱
+</code></pre><p>在本次试验之中，对于将hexo部署在gitpage中，只需要打入</p>
+<pre><code>hexo -d
+</code></pre><p>系统会提示输入用户名与密码，这样输入完之后，就可以将代码上传。</p>
+<p>3、git的基本操作</p>
+<p>Git在未进行commit操作之前，存在三种状态：Untracked files，Changes not staged for commit及Changes to be committed，每种状态之间可以随意进行互相转换。</p>
+<p>查看状态</p>
+<pre><code>git status
+</code></pre><p>前进至：Changes to be committed</p>
+<pre><code>git add hello.c
+</code></pre><p>后退至“Untracked files”文件状态</p>
+<pre><code>git rm --cached hello.c
+</code></pre><p>修改文件更新到暂存区<br>    git add hello.c</p>
+<p>撤销修改<br>    git checkout – hello.c</p>
+<p>针对一个文件的修改你最终改完执行add，再commit<br>    git add hello.c<br>    git commit -m “add hello.c file”</p>
+<p>针对多个文件，你可以执行 git add .（注意add 后边的符号 点）,在git commit -m “”。</p>
+<pre><code>git add . 
+git commit -m &quot;add all files&quot;
+</code></pre><p>修改只有add到暂存区，才会加入到commit，才会提交到分支。</p>
+<p>先查看本地的分支：</p>
+<pre><code>git branch -a
+</code></pre><p>创建一个属于自己的分支，并进行合并：</p>
+<pre><code>git checkout -b 分支名  origin/主分支名
+</code></pre><p>提交到分支</p>
+<p>　　   1）添加到暂存库：git add .</p>
+<p>　　   2）可以通过查看状态看是否存储成功:git status -s</p>
+<p>　　   3）提交代码: git commit -m ‘描述信息’</p>
+<p>　　   4）提交到分支: git push origin 创建的子分支</p>
+<p>但是，需要注意的是，在下一次准备修改代码之前需要先git pull，更新一下代码，避免发生冲突<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">但是，前不久遇到一个问题，就是我忘记建分支了，而且已经在主分支修改了代码，怎么办呢？</span><br><span class="line"></span><br><span class="line">　　　1）进入项目文件夹；</span><br><span class="line"></span><br><span class="line">     2）保存当前的工作进度到暂存区: git stash；</span><br><span class="line"></span><br><span class="line">　　　3）新建一个分支： git checkout -b 分支名 origin/主分支名；</span><br><span class="line"></span><br><span class="line">     4）读取暂存区的内容：git stash apply</span><br><span class="line"></span><br><span class="line">     5）剩下的操作就是同第三步一样</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/七牛云图片存储功能使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -638,7 +1460,7 @@ print(res)
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -646,6 +1468,21 @@ print(res)
 
               
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
               
             </nav>
           
