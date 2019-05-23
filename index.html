@@ -286,6 +286,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/23/centos中安装python3.7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/23/centos中安装python3.7/" class="post-title-link" itemprop="url">centos中安装python3.7</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-23 10:04:09 / Modified: 10:13:27" itemprop="dateCreated datePublished" datetime="2019-05-23T10:04:09+08:00">2019-05-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>以下记录在阿里云的centos中安装python3.7的过程</p>
+<pre><code># 安装前置环境    
+yum install openssl-devel bzip2-devel expat-devel gdbm-devel readline-devel sqlite-devel  mysql-devel gcc gcc-devel python-devel  
+yum install libffi-devel -y
+
+# 下载python3.7并安装
+wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+tar -zxvf Python-3.7.0.tgz
+cd Python-3.7.0
+./configure --prefix=/usr/local/python3
+make&amp;&amp;make install
+
+# 制作软链接
+ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+
+# 安装虚拟环境
+pip3 install virtualenv
+ln -s /usr/local/python3/bin/virtualenv /usr/bin/virtualenv
+virutalenv -p /usr/bin/python3
+</code></pre><p>一个知识点：如何检查centos的安装源？</p>
+<p>1）检查pip.conf文件是否存在</p>
+<pre><code>cd ~
+mkdir .pip
+ls ~/.pip
+</code></pre><p>2）直接编辑pip.conf</p>
+<pre><code>sudo vi ~/.pip/pip.conf
+</code></pre><p>经过检查，阿里云的centos的安装源就是阿里云的源，不需要更换，所以安装的速度非常快。 </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客五：发表markdown博文/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1686,7 +1856,7 @@ print(res)
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1713,7 +1883,9 @@ print(res)
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
