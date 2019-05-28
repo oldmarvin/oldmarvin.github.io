@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="51、正则匹配，匹配日期2018-03-20​url=’https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;amp;dateType=recent1&amp;amp;device=1&amp;amp;token=ff25b109b&amp;amp;_=15215956134">
+<meta name="keywords" content="python,面试题,基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python面试110题（二）">
+<meta property="og:url" content="http://yoursite.com/2019/05/28/python面试110题（二）/index.html">
+<meta property="og:site_name" content="Marvin&#39;s blog">
+<meta property="og:description" content="51、正则匹配，匹配日期2018-03-20​url=’https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;amp;dateType=recent1&amp;amp;device=1&amp;amp;token=ff25b109b&amp;amp;_=15215956134">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://prud1ioef.bkt.clouddn.com/20190527/J02.jpg">
+<meta property="og:updated_time" content="2019-05-28T07:34:46.074Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python面试110题（二）">
+<meta name="twitter:description" content="51、正则匹配，匹配日期2018-03-20​url=’https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;amp;dateType=recent1&amp;amp;device=1&amp;amp;token=ff25b109b&amp;amp;_=15215956134">
+<meta name="twitter:image" content="http://prud1ioef.bkt.clouddn.com/20190527/J02.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/28/python面试110题（二）/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python面试110题（二） | Marvin's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Marvin's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/28/python面试110题（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marvin Cai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Marvin's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python面试110题（二）
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-28 14:02:09 / Modified: 15:34:46" itemprop="dateCreated datePublished" datetime="2019-05-28T14:02:09+08:00">2019-05-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="51、正则匹配，匹配日期2018-03-20"><a href="#51、正则匹配，匹配日期2018-03-20" class="headerlink" title="51、正则匹配，匹配日期2018-03-20"></a>51、正则匹配，匹配日期2018-03-20</h2><p>​<br>url=’<a href="https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;dateType=recent1&amp;device=1&amp;token=ff25b109b&amp;_=1521595613462&#39;" target="_blank" rel="noopener">https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;dateType=recent1&amp;device=1&amp;token=ff25b109b&amp;_=1521595613462&#39;</a><br>​<br>仍有同学问正则，其实匹配并不难，提取一段特征语句，用（.*?）匹配即可</p>
+<pre><code>import re
+url=&apos;https://sycm.taobao.com/bda/tradinganaly/overview/get_summary.json?dateRange=2018-03-20%7C2018-03-20&amp;dateType=recent1&amp;device=1&amp;token=ff25b109b&amp;_=1521595613462&apos;
+result = re.findall(r&apos;dateRange=(.*?)%7C(.*?)&amp;&apos;,url)
+print(result)
+[(&apos;2018-03-20&apos;, &apos;2018-03-20&apos;)]
+</code></pre><h2 id="52、list-2-3-5-4-9-6-，从小到大排序，不许用sort，输出-2-3-4-5-6-9"><a href="#52、list-2-3-5-4-9-6-，从小到大排序，不许用sort，输出-2-3-4-5-6-9" class="headerlink" title="52、list=[2,3,5,4,9,6]，从小到大排序，不许用sort，输出[2,3,4,5,6,9]"></a>52、list=[2,3,5,4,9,6]，从小到大排序，不许用sort，输出[2,3,4,5,6,9]</h2><p>利用min()方法求出最小值，原列表删除最小值，新列表加入最小值，递归调用获取最小值的函数，反复操作</p>
+<pre><code>list = [2,3,5,4,9,6,3]
+new_list=[]
+def get_min(list):
+    a=min(list)
+    list.remove(a)
+    new_list.append(a)
+    if len(list)&gt;0:
+        get_min(list)
+    return new_list
+new_list=get_min(list)
+print(new_list)
+
+[2, 3, 3, 4, 5, 6, 9]
+</code></pre><h2 id="53、写一个单列模式"><a href="#53、写一个单列模式" class="headerlink" title="53、写一个单列模式"></a>53、写一个单列模式</h2><p>因为创建对象时new方法执行，并且必须return 返回实例化出来的对象所cls.__instance 是否存在，不存在的话就创建对象，存在的话就返回该对象，来保证只有一个实例对象存在（单列），打印ID，值一样，说明对象同一个</p>
+<pre><code>class Singleton(object):
+    __instance = None
+    def __new__(cls,age,name):
+        if not cls.__instance:
+            cls.__instance = object.__new__(cls)
+        return cls.__instance
+a=Singleton(18,&quot;dongGe&quot;)
+b=Singleton(8,&quot;dongGe&quot;)
+​
+print(id(a))
+print(id(b))
+a.age=19
+print(b.age)
+
+100202200
+100202200
+19
+</code></pre><h2 id="54、保留两位小数"><a href="#54、保留两位小数" class="headerlink" title="54、保留两位小数"></a>54、保留两位小数</h2><p>题目本身只有a=”%.03f”%1.3335,让计算a的结果，为了扩充保留小数的思路，提供round方法（数值，保留位数）</p>
+<pre><code>a=&quot;%.03f&quot;%1.3335
+print (a,type(a))
+b=round(float(a),1)
+print(b)
+b=round(float(a),2)
+print(b)
+A=zip((&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;),(1,2,3,4,5))
+A0=dict(A)
+print (A)
+print(A0)
+1.333 &lt;class &apos;str&apos;&gt;
+1.3
+1.33
+&lt;zip object at 0x0000000005D62088&gt;
+{&apos;a&apos;: 1, &apos;b&apos;: 2, &apos;c&apos;: 3, &apos;d&apos;: 4, &apos;e&apos;: 5}
+</code></pre><h2 id="55、求三个方法打印结果"><a href="#55、求三个方法打印结果" class="headerlink" title="55、求三个方法打印结果"></a>55、求三个方法打印结果</h2><p>fn(“one”,1）直接将键值对传给字典；</p>
+<p>fn(“two”,2) 因为字典在内存中是可变数据类型，所以指向同一个地址，传了新的额参数后，会相当于给字典增加键值对</p>
+<p>fn(“three”,3,{})因为传了一个新字典，所以不再是原先默认参数的字典</p>
+<pre><code>def fn(k,v,dic={}):
+    dic[k]=v
+    print(dic)
+fn(&quot;one&quot;,1)
+fn(&quot;two&quot;,2)
+fn(&quot;three&quot;,3,{})
+​
+{&apos;one&apos;: 1}
+{&apos;one&apos;: 1, &apos;two&apos;: 2}
+{&apos;three&apos;: 3}
+</code></pre><h2 id="56、列出常见的状态码和意义"><a href="#56、列出常见的状态码和意义" class="headerlink" title="56、列出常见的状态码和意义"></a>56、列出常见的状态码和意义</h2><pre><code>200 OK
+
+请求正常处理完毕
+
+204 No Content
+
+请求成功处理，没有实体的主体返回
+
+206 Partial Content
+
+GET范围请求已成功处理
+
+301 Moved Permanently
+
+永久重定向，资源已永久分配新URI
+
+302 Found
+
+临时重定向，资源已临时分配新URI
+
+303 See Other
+
+临时重定向，期望使用GET定向获取
+
+304 Not Modified
+
+发送的附带条件请求未满足
+
+307 Temporary Redirect
+
+临时重定向，POST不会变成GET
+
+400 Bad Request
+
+请求报文语法错误或参数错误
+
+401 Unauthorized
+
+需要通过HTTP认证，或认证失败
+
+403 Forbidden
+
+请求资源被拒绝
+
+404 Not Found
+
+无法找到请求资源（服务器无理由拒绝）
+
+500 Internal Server Error
+
+服务器故障或Web应用故障
+
+503 Service Unavailable
+
+服务器超负载或停机维护
+</code></pre><h2 id="57、分别从前端、后端、数据库阐述web项目的性能优化"><a href="#57、分别从前端、后端、数据库阐述web项目的性能优化" class="headerlink" title="57、分别从前端、后端、数据库阐述web项目的性能优化"></a>57、分别从前端、后端、数据库阐述web项目的性能优化</h2><p>​<br>    该题目网上有很多方法，我不想截图网上的长串文字，看的头疼，按我自己的理解说几点:</p>
+<pre><code>​
+前端优化：
+​
+1、减少http请求、例如制作精灵图
+​
+2、html和CSS放在页面上部，javascript放在页面下面，因为js加载比HTML和Css加载慢，所以要优先加载html和css,以防页面显示不全，性能差，也影响用户体验差    
+​
+后端优化：
+​
+1、缓存存储读写次数高，变化少的数据，比如网站首页的信息、商品的信息等。应用程序读取数据时，一般是先从缓存中读取，如果读取不到或数据已失效，再访问磁盘数据库，并将数据再次写入缓存。
+​
+2、异步方式，如果有耗时操作，可以采用异步，比如celery
+​
+3、代码优化，避免循环和判断次数太多，如果多个if else判断，优先判断最有可能先发生的情况
+​
+数据库优化：
+​
+1、如有条件，数据可以存放于redis，读取速度快
+​
+2、建立索引、外键等
+</code></pre><h2 id="58、使用pop和del删除字典中的”name”字段，dic-“name”-”zs”-”age”-18"><a href="#58、使用pop和del删除字典中的”name”字段，dic-“name”-”zs”-”age”-18" class="headerlink" title="58、使用pop和del删除字典中的”name”字段，dic={“name”:”zs”,”age”:18}"></a>58、使用pop和del删除字典中的”name”字段，dic={“name”:”zs”,”age”:18}</h2><pre><code>dic={&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:18}
+dic.pop(&quot;name&quot;)
+print(dic)
+dic={&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:18}
+del dic[&quot;name&quot;]
+print(dic)
+{&apos;age&apos;: 18}
+{&apos;age&apos;: 18}
+</code></pre><h2 id="59、列出常见MYSQL数据存储引擎"><a href="#59、列出常见MYSQL数据存储引擎" class="headerlink" title="59、列出常见MYSQL数据存储引擎"></a>59、列出常见MYSQL数据存储引擎</h2><p>InnoDB：支持事务处理，支持外键，支持崩溃修复能力和并发控制。如果需要对事务的完整性要求比较高（比如银行），要求实现并发控制（比如售票），那选择InnoDB有很大的优势。如果需要频繁的更新、删除操作的数据库，也可以选择InnoDB，因为支持事务的提交（commit）和回滚（rollback）。</p>
+<p>MyISAM：插入数据快，空间和内存使用比较低。如果表主要是用于插入新记录和读出记录，那么选择MyISAM能实现处理高效率。如果应用的完整性、并发性要求比 较低，也可以使用。</p>
+<p>MEMORY：所有的数据都在内存中，数据的处理速度快，但是安全性不高。如果需要很快的读写速度，对数据的安全性要求较低，可以选择MEMOEY。它对表的大小有要求，不能建立太大的表。所以，这类数据库只使用在相对较小的数据库表。</p>
+<h2 id="60、计算代码运行结果，zip函数历史文章已经说了，得出-“a”-1-“b”-2-，-“c”-3-“d”-4-“e”-5"><a href="#60、计算代码运行结果，zip函数历史文章已经说了，得出-“a”-1-“b”-2-，-“c”-3-“d”-4-“e”-5" class="headerlink" title="60、计算代码运行结果，zip函数历史文章已经说了，得出[(“a”,1),(“b”,2)，(“c”,3),(“d”,4),(“e”,5)]"></a>60、计算代码运行结果，zip函数历史文章已经说了，得出[(“a”,1),(“b”,2)，(“c”,3),(“d”,4),(“e”,5)]</h2><pre><code>A=zip((&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;),(1,2,3,4,5))
+A0=dict(A)
+A1=range(10)
+A2=[i for i in A1 if i in A0]
+A3=[A0[s] for s in A0]
+print(&quot;A0&quot;,A0)
+# print(list(zip((&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;),(1,2,3,4,5))))
+print(A2)
+print(A3)
+​
+#dict()创建字典新方法
+​
+s=dict([[&quot;name&quot;,&quot;zs&quot;],[&quot;age&quot;,18]])  #列表
+print(s)
+s=dict([(&quot;name&quot;,&quot;zs&quot;),(&quot;age&quot;,18)])  #元组
+print(s)
+A0 {&apos;a&apos;: 1, &apos;b&apos;: 2, &apos;c&apos;: 3, &apos;d&apos;: 4, &apos;e&apos;: 5}
+[]
+[1, 2, 3, 4, 5]
+{&apos;name&apos;: &apos;zs&apos;, &apos;age&apos;: 18}
+{&apos;name&apos;: &apos;zs&apos;, &apos;age&apos;: 18}
+</code></pre><h2 id="61、简述同源策略"><a href="#61、简述同源策略" class="headerlink" title="61、简述同源策略"></a>61、简述同源策略</h2><p>同源策略需要同时满足以下三点要求：</p>
+<p>1）协议相同</p>
+<p>2）域名相同</p>
+<p>3）端口相同</p>
+<p>http:<a href="http://www.test.com与https:http://www.test.com" target="_blank" rel="noopener">http://www.test.com与https:http://www.test.com</a> 不同源——协议不同</p>
+<p>http:<a href="http://www.test.com与http:http://www.admin.com" target="_blank" rel="noopener">http://www.test.com与http:http://www.admin.com</a> 不同源——域名不同</p>
+<p>http:<a href="http://www.test.com与http:http://www.test.com:8081" target="_blank" rel="noopener">http://www.test.com与http:http://www.test.com:8081</a> 不同源——端口不同</p>
+<p>只要不满足其中任意一个要求，就不符合同源策略，就会出现“跨域”</p>
+<h2 id="62、简述cookie和session的区别"><a href="#62、简述cookie和session的区别" class="headerlink" title="62、简述cookie和session的区别"></a>62、简述cookie和session的区别</h2><p>1，session 在服务器端，cookie 在客户端（浏览器）</p>
+<p>2、session 的运行依赖 session id，而 session id 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效，存储Session时，键与Cookie中的sessionid相同，值是开发人员设置的键值对信息，进行了base64编码，过期时间由开发人员设置</p>
+<p>3、cookie安全性比session差</p>
+<h2 id="63、简述多线程、多进程"><a href="#63、简述多线程、多进程" class="headerlink" title="63、简述多线程、多进程"></a>63、简述多线程、多进程</h2><p>进程：</p>
+<p>1、操作系统进行资源分配和调度的基本单位，多个进程之间相互独立</p>
+<p>2、稳定性好，如果一个进程崩溃，不影响其他进程，但是进程消耗资源大，开启的进程数量有限制</p>
+<p>线程：</p>
+<p>1、CPU进行资源分配和调度的基本单位，线程是进程的一部分，是比进程更小的能独立运行的基本单位，一个进程下的多个线程可以共享该进程的所有资源</p>
+<p>2、如果IO操作密集，则可以多线程运行效率高，缺点是如果一个线程崩溃，都会造成进程的崩溃</p>
+<p>应用：</p>
+<p>IO密集的用多线程，在用户输入，sleep 时候，可以切换到其他线程执行，减少等待的时间</p>
+<p>CPU密集的用多进程，因为假如IO操作少，用多线程的话，因为线程共享一个全局解释器锁，当前运行的线程会霸占GIL，其他线程没有GIL，就不能充分利用多核CPU的优势</p>
+<h2 id="64、简述any-和all-方法"><a href="#64、简述any-和all-方法" class="headerlink" title="64、简述any()和all()方法"></a>64、简述any()和all()方法</h2><p>any():只要迭代器中有一个元素为真就为真</p>
+<p>all():迭代器中所有的判断项返回都是真，结果才为真</p>
+<p>python中什么元素为假？</p>
+<p>答案：（0，空字符串，空列表、空字典、空元组、None, False）</p>
+<pre><code>print(bool(0))
+print(bool(&quot;&quot;))
+print(bool([]))
+print(bool(()))
+print(bool({}))
+​
+#测试all()和any()方法
+print(&quot;\n&quot;)
+a = [True,False]
+print(any(a))
+print(all(a))
+a=&quot;&quot;
+print(any(a))
+b=[&apos;good&apos;,&apos;good&apos;,&apos;good&apos;,&apos;bad&apos;]
+print(all(b))
+b=[&apos;good&apos;,&apos;good&apos;,&apos;good&apos;]
+print(all(&quot;b&quot;))
+print(any(&quot;b&quot;))
+print(b)
+b=[&apos;good&apos;,&apos;good&apos;,&apos;good&apos;]
+print(b)
+print(all(b))
+​
+False
+False
+False
+False
+False
+
+
+True
+False
+False
+True
+True
+True
+[&apos;good&apos;, &apos;good&apos;, &apos;good&apos;]
+[&apos;good&apos;, &apos;good&apos;, &apos;good&apos;]
+True
+</code></pre><h2 id="65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常"><a href="#65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常" class="headerlink" title="65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常"></a>65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常</h2><p>IOError：输入输出异常</p>
+<p>AttributeError：试图访问一个对象没有的属性</p>
+<p>ImportError：无法引入模块或包，基本是路径问题</p>
+<p>IndentationError：语法错误，代码没有正确的对齐</p>
+<p>IndexError：下标索引超出序列边界</p>
+<p>KeyError:试图访问你字典里不存在的键</p>
+<p>SyntaxError:Python代码逻辑语法出错，不能执行</p>
+<p>NameError:使用一个还未赋予对象的变量</p>
+<h2 id="66、python中copy和deepcopy区别"><a href="#66、python中copy和deepcopy区别" class="headerlink" title="66、python中copy和deepcopy区别"></a>66、python中copy和deepcopy区别</h2><p>1、复制不可变数据类型，不管copy还是deepcopy,都是同一个地址当浅复制的值是不可变对象（数值，字符串，元组）时和=“赋值”的情况一样，对象的id值与浅复制原来的值相同。</p>
+<p>2、复制的值是可变对象（列表和字典）</p>
+<p>浅拷贝copy有两种情况：</p>
+<p>第一种情况：复制的 对象中无 复杂 子对象，原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。</p>
+<p>第二种情况：复制的对象中有 复杂 子对象 （例如列表中的一个子元素是一个列表）， 改变原来的值 中的复杂子对象的值 ，会影响浅复制的值。</p>
+<p>深拷贝deepcopy：完全复制独立，包括内层列表和字典</p>
+<pre><code>import copy 
+a= &quot;哈哈&quot;
+b=a
+c=copy.copy(a)
+d=copy.deepcopy(a)
+print(a,id(a))
+print(b,id(b))
+print(d,id(c))
+print(d,id(d))
+​
+哈哈 100280080
+哈哈 100280080
+哈哈 100280080
+哈哈 100280080
+</code></pre><h2 id="67、列出几种魔法方法并简要介绍用途"><a href="#67、列出几种魔法方法并简要介绍用途" class="headerlink" title="67、列出几种魔法方法并简要介绍用途"></a>67、列出几种魔法方法并简要介绍用途</h2><p>init:对象初始化方法</p>
+<p>new:创建对象时候执行的方法，单列模式会用到</p>
+<p>str:当使用print输出对象的时候，只要自己定义了str(self)方法，那么就会打印从在这个方法中return的数据</p>
+<p>del:删除对象执行的方法</p>
+<h2 id="68、C-Users-ry-wu-junya-Desktop-gt-python-1-py-22-33命令行启动程序并传参，print-sys-argv-会输出什么数据？"><a href="#68、C-Users-ry-wu-junya-Desktop-gt-python-1-py-22-33命令行启动程序并传参，print-sys-argv-会输出什么数据？" class="headerlink" title="68、C:\Users\ry-wu.junya\Desktop&gt;python 1.py 22 33命令行启动程序并传参，print(sys.argv)会输出什么数据？"></a>68、C:\Users\ry-wu.junya\Desktop&gt;python 1.py 22 33命令行启动程序并传参，print(sys.argv)会输出什么数据？</h2><p>文件名和参数构成的列表 C:\Users\ry-wu.junya\Desktop&gt;python 1.py 22 33 [‘1.py’,’22’,’33’]</p>
+<h2 id="69、请将-i-for-i-in-range-3-改成生成器"><a href="#69、请将-i-for-i-in-range-3-改成生成器" class="headerlink" title="69、请将[i for i in range(3)]改成生成器"></a>69、请将[i for i in range(3)]改成生成器</h2><p>生成器是特殊的迭代器，</p>
+<p>1、列表表达式的【】改为（）即可变成生成器</p>
+<p>2、函数在返回值得时候出现yield就变成生成器，而不是函数了；</p>
+<p>中括号换成小括号即可，有没有惊呆了</p>
+<pre><code>a=(i for i in range(3))
+print(type(a))
+&lt;class &apos;generator&apos;&gt;
+70、a = &quot; hehheh &quot;,去除收尾空格
+
+
+a = &quot; hehheh &quot;
+print(a.strip())
+​
+hehheh
+</code></pre><h2 id="71、举例sort和sorted对列表排序，list-0-1-3-10-5-9"><a href="#71、举例sort和sorted对列表排序，list-0-1-3-10-5-9" class="headerlink" title="71、举例sort和sorted对列表排序，list=[0,-1,3,-10,5,9]"></a>71、举例sort和sorted对列表排序，list=[0,-1,3,-10,5,9]</h2><pre><code>list = [0,-1,3,-10,5,9]
+list.sort(reverse=False)
+print (&quot;list.sort在list基础上修改，无返回值&quot;,list)
+list = [0,-1,3,-10,5,9]
+res=sorted(list,reverse=False)
+print (&quot;sorted有返回值是新的list&quot;,list)
+print(&quot;返回值&quot;,res)
+list.sort在list基础上修改，无返回值 [-10, -1, 0, 3, 5, 9]
+sorted有返回值是新的list [0, -1, 3, -10, 5, 9]
+返回值 [-10, -1, 0, 3, 5, 9]
+</code></pre><h2 id="72、对list排序foo-5-8-0-4-9-4-20-2-8-2-4-使用lambda函数从小到大排序"><a href="#72、对list排序foo-5-8-0-4-9-4-20-2-8-2-4-使用lambda函数从小到大排序" class="headerlink" title="72、对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4],使用lambda函数从小到大排序"></a>72、对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4],使用lambda函数从小到大排序</h2><pre><code>foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4]
+a=sorted(foo,key=lambda x:x)
+foo.sort()
+print(a)
+[-20, -5, -4, -4, -2, 0, 2, 4, 8, 8, 9]
+</code></pre><h2 id="73、使用lambda函数对list排序foo-5-8-0-4-9-4-20-2-8-2-4-，输出结果为"><a href="#73、使用lambda函数对list排序foo-5-8-0-4-9-4-20-2-8-2-4-，输出结果为" class="headerlink" title="73、使用lambda函数对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4]，输出结果为"></a>73、使用lambda函数对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4]，输出结果为</h2><p>[0,2,4,8,8,9,-2,-4,-4,-5,-20]，正数从小到大，负数从大到小</p>
+<p>（传两个条件，x&lt;0和abs(x)）</p>
+<pre><code>foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4]
+a=sorted(foo,key=lambda x:(x&lt;0,abs(x)))
+foo.sort()
+print(a)
+[0, 2, 4, 8, 8, 9, -2, -4, -4, -5, -20]
+</code></pre><h2 id="74、列表嵌套字典的排序，分别根据年龄和姓名排序"><a href="#74、列表嵌套字典的排序，分别根据年龄和姓名排序" class="headerlink" title="74、列表嵌套字典的排序，分别根据年龄和姓名排序"></a>74、列表嵌套字典的排序，分别根据年龄和姓名排序</h2><pre><code>foo = [{&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:19},{&quot;name&quot;:&quot;ll&quot;,&quot;age&quot;:54},
+
+{&quot;name&quot;:&quot;wa&quot;,&quot;age&quot;:17},{&quot;name&quot;:&quot;df&quot;,&quot;age&quot;:23}]
+
+
+foo = [{&quot;name&quot;:&quot;zs&quot;,&quot;age&quot;:19},{&quot;name&quot;:&quot;ll&quot;,&quot;age&quot;:54},
+{&quot;name&quot;:&quot;wa&quot;,&quot;age&quot;:17},{&quot;name&quot;:&quot;df&quot;,&quot;age&quot;:23}]
+a= sorted(foo,key=lambda x:x[&quot;age&quot;],reverse=True)
+print(a)
+a=sorted(foo,key=lambda x:x[&quot;name&quot;])
+print(a)
+[{&apos;name&apos;: &apos;ll&apos;, &apos;age&apos;: 54}, {&apos;name&apos;: &apos;df&apos;, &apos;age&apos;: 23}, {&apos;name&apos;: &apos;zs&apos;, &apos;age&apos;: 19}, {&apos;name&apos;: &apos;wa&apos;, &apos;age&apos;: 17}]
+[{&apos;name&apos;: &apos;df&apos;, &apos;age&apos;: 23}, {&apos;name&apos;: &apos;ll&apos;, &apos;age&apos;: 54}, {&apos;name&apos;: &apos;wa&apos;, &apos;age&apos;: 17}, {&apos;name&apos;: &apos;zs&apos;, &apos;age&apos;: 19}]
+</code></pre><h2 id="76、列表嵌套列表排序，年龄数字相同怎么办？"><a href="#76、列表嵌套列表排序，年龄数字相同怎么办？" class="headerlink" title="76、列表嵌套列表排序，年龄数字相同怎么办？"></a>76、列表嵌套列表排序，年龄数字相同怎么办？</h2><pre><code>foo=[[&quot;zs&quot;,19],[&quot;ll&quot;,54],[&quot;wa&quot;,23],[&quot;df&quot;,23],[&quot;xf&quot;,23]]
+a= sorted(foo,key=lambda x:(x[1]))
+print(a)
+a= sorted(foo,key=lambda x:(x[1],x[0]))
+print(a)
+a=sorted(foo,key=lambda x:x[0])
+print(a)
+[[&apos;zs&apos;, 19], [&apos;wa&apos;, 23], [&apos;df&apos;, 23], [&apos;xf&apos;, 23], [&apos;ll&apos;, 54]]
+[[&apos;zs&apos;, 19], [&apos;df&apos;, 23], [&apos;wa&apos;, 23], [&apos;xf&apos;, 23], [&apos;ll&apos;, 54]]
+[[&apos;df&apos;, 23], [&apos;ll&apos;, 54], [&apos;wa&apos;, 23], [&apos;xf&apos;, 23], [&apos;zs&apos;, 19]]
+</code></pre><h2 id="77、根据键对字典排序（方法一，zip函数）"><a href="#77、根据键对字典排序（方法一，zip函数）" class="headerlink" title="77、根据键对字典排序（方法一，zip函数）"></a>77、根据键对字典排序（方法一，zip函数）</h2><pre><code>dic = {&quot;name&quot;:&quot;zs&quot;,&quot;sex&quot;:&quot;man&quot;,&quot;city&quot;:&quot;bj&quot;}
+foo = zip(dic.keys(),dic.values())
+foo = [i for i in foo]
+print (&quot;字典转成列表嵌套元组&quot;,foo)
+b = sorted(foo,key=lambda x:x[0])
+print(&quot;根据链排序&quot;,b)
+new_dic = {i[0]:i[1] for i in b}
+print (&quot;字典推导式构造新字典&quot;,new_dic)
+字典转成列表嵌套元组 [(&apos;name&apos;, &apos;zs&apos;), (&apos;sex&apos;, &apos;man&apos;), (&apos;city&apos;, &apos;bj&apos;)]
+根据链排序 [(&apos;city&apos;, &apos;bj&apos;), (&apos;name&apos;, &apos;zs&apos;), (&apos;sex&apos;, &apos;man&apos;)]
+字典推导式构造新字典 {&apos;city&apos;: &apos;bj&apos;, &apos;name&apos;: &apos;zs&apos;, &apos;sex&apos;: &apos;man&apos;}
+</code></pre><h2 id="78、根据键对字典排序（方法二-不用zip"><a href="#78、根据键对字典排序（方法二-不用zip" class="headerlink" title="78、根据键对字典排序（方法二,不用zip)"></a>78、根据键对字典排序（方法二,不用zip)</h2><p>有没有发现dic.items和zip(dic.keys(),dic.values())都是为了构造列表嵌套字典的结构，方便后面用sorted()构造排序规则</p>
+<pre><code>dic = {&quot;name&quot;:&quot;zs&quot;,&quot;sex&quot;:&quot;man&quot;,&quot;city&quot;:&quot;bj&quot;}
+# foo = zip(dic.keys(),dic.values())
+# foo = [i for i in foo]
+print (&quot;字典转成列表嵌套元组&quot;,foo)
+print (dic.items())
+b = sorted(foo,key=lambda x:x[0])
+print(&quot;根据链排序&quot;,b)
+new_dic = {i[0]:i[1] for i in b}
+print (&quot;字典推导式构造新字典&quot;,new_dic)
+字典转成列表嵌套元组 [(&apos;name&apos;, &apos;zs&apos;), (&apos;sex&apos;, &apos;man&apos;), (&apos;city&apos;, &apos;bj&apos;)]
+dict_items([(&apos;name&apos;, &apos;zs&apos;), (&apos;sex&apos;, &apos;man&apos;), (&apos;city&apos;, &apos;bj&apos;)])
+根据链排序 [(&apos;city&apos;, &apos;bj&apos;), (&apos;name&apos;, &apos;zs&apos;), (&apos;sex&apos;, &apos;man&apos;)]
+字典推导式构造新字典 {&apos;city&apos;: &apos;bj&apos;, &apos;name&apos;: &apos;zs&apos;, &apos;sex&apos;: &apos;man&apos;}
+</code></pre><h2 id="79、列表推导式、字典推导式、生成器"><a href="#79、列表推导式、字典推导式、生成器" class="headerlink" title="79、列表推导式、字典推导式、生成器"></a>79、列表推导式、字典推导式、生成器</h2><pre><code>import random
+td_list=[i for i in range(10)]
+print (&quot;列表推导式&quot;, td_list, type(td_list))
+​
+ge_list = (i for i in range(10))
+print (&quot;生成器&quot;, ge_list)
+​
+dic = {k:random.randint(4,9) for k in [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]}
+print (&quot;字典推导式&quot;,dic, type(dic))
+列表推导式 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] &lt;class &apos;list&apos;&gt;
+生成器 &lt;generator object &lt;genexpr&gt; at 0x0000000005FA2E60&gt;
+字典推导式 {&apos;a&apos;: 4, &apos;b&apos;: 5, &apos;c&apos;: 4, &apos;d&apos;: 9} &lt;class &apos;dict&apos;&gt;
+</code></pre><h2 id="80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用"><a href="#80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用" class="headerlink" title="80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用"></a>80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用</h2><pre><code>s= [&quot;ab&quot;,&quot;abc&quot;,&quot;a&quot;,&quot;djkj&quot;]
+b= sorted(s,key=lambda x:len(x))
+print(b,s)
+s.sort(key=len)
+print(s)
+[&apos;a&apos;, &apos;ab&apos;, &apos;abc&apos;, &apos;djkj&apos;] [&apos;ab&apos;, &apos;abc&apos;, &apos;a&apos;, &apos;djkj&apos;]
+[&apos;a&apos;, &apos;ab&apos;, &apos;abc&apos;, &apos;djkj&apos;]
+</code></pre><h2 id="81、举例说明SQL注入和解决办法"><a href="#81、举例说明SQL注入和解决办法" class="headerlink" title="81、举例说明SQL注入和解决办法"></a>81、举例说明SQL注入和解决办法</h2><p>当以字符串格式化书写方式的时候，如果用户输入的有;+SQL语句，后面的SQL语句会执行，比如例子中的SQL注入会删除数据库demo</p>
+<p>解决方式：通过传参数方式解决SQL注入</p>
+<pre><code>input_name =&quot;zs&quot;
+sql = &apos;select * from demo where name=&quot;%s&quot;&apos; % input_name
+print(&quot;正常SQL语句&quot;,sql)
+​
+input_name=&quot;zs;drop database demo&quot;
+sql= &apos;select * from demo where name=&quot;%s&quot;&apos; % input_name
+print(&quot;SQL注入语句&quot;,sql)
+​
+#解决方式：通过传参数方式解决SQL注入
+params = [input_name]
+# count=cs1.execute(&apos;select * from goods where name=%s&apos;,params)
+# print (count)
+正常SQL语句 select * from demo where name=&quot;zs&quot;
+SQL注入语句 select * from demo where name=&quot;zs;drop database demo&quot;
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+&lt;ipython-input-61-1f24d3bb29b7&gt; in &lt;module&gt;()
+      9 #解决方式：通过传参数方式解决SQL注入
+     10 params = [input_name]
+---&gt; 11 count=cs1.execute(&apos;select * from goods where name=%s&apos;,params)
+     12 print (count)
+
+NameError: name &apos;cs1&apos; is not defined
+</code></pre><h2 id="82、s-”info-xiaoZhang-33-shandong”-用正则切分字符串输出-‘info’-‘xiaoZhang’-‘33’-‘shandong’"><a href="#82、s-”info-xiaoZhang-33-shandong”-用正则切分字符串输出-‘info’-‘xiaoZhang’-‘33’-‘shandong’" class="headerlink" title="82、s=”info:xiaoZhang 33 shandong”,用正则切分字符串输出[‘info’, ‘xiaoZhang’, ‘33’, ‘shandong’]"></a>82、s=”info:xiaoZhang 33 shandong”,用正则切分字符串输出[‘info’, ‘xiaoZhang’, ‘33’, ‘shandong’]</h2><p>|表示或，根据冒号或者空格切分</p>
+<pre><code>s = &quot;info:xiaoZhang 33 shandong&quot;
+res= re.split(r&quot;:| &quot;,s)
+print(res)
+[&apos;info&apos;, &apos;xiaoZhang&apos;, &apos;33&apos;, &apos;shandong&apos;]
+</code></pre><h2 id="83、正则匹配以http-163-com结尾的邮箱"><a href="#83、正则匹配以http-163-com结尾的邮箱" class="headerlink" title="83、正则匹配以http://163.com结尾的邮箱"></a>83、正则匹配以<a href="http://163.com结尾的邮箱" target="_blank" rel="noopener">http://163.com结尾的邮箱</a></h2><pre><code>email_list = [&apos;xiaowang@163.com&apos;,&apos;xiaowang@163.comheihei&apos;,&apos;com.xiaownag@qq.com&apos;]
+for email in email_list:
+    ret = re.match(&quot;[\w]{4,20}@163\.com$&quot;,email)
+    if ret:
+        print (&quot;%s 是符合规定的邮件地址，匹配后的结果是：%s&quot;%(email,ret.group()))
+    else:
+        print (&quot;%s 不符合要求&quot;%email)
+
+xiaowang@163.com 是符合规定的邮件地址，匹配后的结果是：xiaowang@163.com
+xiaowang@163.comheihei 不符合要求
+com.xiaownag@qq.com 不符合要求
+</code></pre><h2 id="84、递归求和"><a href="#84、递归求和" class="headerlink" title="84、递归求和"></a>84、递归求和</h2><pre><code>def get_sum(num):
+    if num&gt;=1:
+        res= num+get_sum(num-1)
+    else:
+        res=0
+    return res
+res=get_sum(10)
+print(res)
+55
+</code></pre><h2 id="85、python字典和json字符串相互转化方法"><a href="#85、python字典和json字符串相互转化方法" class="headerlink" title="85、python字典和json字符串相互转化方法"></a>85、python字典和json字符串相互转化方法</h2><p>json.dumps()字典转json字符串，json.loads()json转字典</p>
+<pre><code>import json
+dic = {&quot;name&quot;:&quot;zs&quot;}
+res = json.dumps(dic)
+print (res,type(res))
+ret= json.loads(res)
+print(ret,type(ret))
+{&quot;name&quot;: &quot;zs&quot;} &lt;class &apos;str&apos;&gt;
+{&apos;name&apos;: &apos;zs&apos;} &lt;class &apos;dict&apos;&gt;
+</code></pre><h2 id="86、MyISAM-与-InnoDB-区别："><a href="#86、MyISAM-与-InnoDB-区别：" class="headerlink" title="86、MyISAM 与 InnoDB 区别："></a>86、MyISAM 与 InnoDB 区别：</h2><p>1、InnoDB 支持事务，MyISAM 不支持，这一点是非常之重要。事务是一种高</p>
+<p>级的处理方式，如在一些列增删改中只要哪个出错还可以回滚还原，而 MyISAM</p>
+<p>就不可以了；</p>
+<p>2、MyISAM 适合查询以及插入为主的应用，InnoDB 适合频繁修改以及涉及到</p>
+<p>安全性较高的应用；</p>
+<p>3、InnoDB 支持外键，MyISAM 不支持；</p>
+<p>4、对于自增长的字段，InnoDB 中必须包含只有该字段的索引，但是在 MyISAM</p>
+<p>表中可以和其他字段一起建立联合索引；</p>
+<p>5、清空整个表时，InnoDB 是一行一行的删除，效率非常慢。MyISAM 则会重</p>
+<p>建表；</p>
+<h2 id="87、统计字符串中某字符出现次数"><a href="#87、统计字符串中某字符出现次数" class="headerlink" title="87、统计字符串中某字符出现次数"></a>87、统计字符串中某字符出现次数</h2><pre><code>str = &quot;张三 美国 张三 哈哈 张 三&quot;
+res=str.count(&quot;张三&quot;)
+print (res)
+2
+</code></pre><h2 id="88、字符串转化大小写"><a href="#88、字符串转化大小写" class="headerlink" title="88、字符串转化大小写"></a>88、字符串转化大小写</h2><pre><code>str = &quot;HHHuuu&quot;
+print (str.upper())
+print(str.lower())
+HHHUUU
+hhhuuu
+</code></pre><h2 id="89、用两种方法去空格"><a href="#89、用两种方法去空格" class="headerlink" title="89、用两种方法去空格"></a>89、用两种方法去空格</h2><pre><code>str =&quot;hello world ha ha&quot;
+res=str.replace(&quot; &quot;,&quot;&quot;)
+print (res)
+​
+list = str.split(&quot; &quot;)
+res = &quot;&quot;.join(list)
+print(res)
+
+helloworldhaha
+helloworldhaha
+</code></pre><h2 id="90、正则匹配不是以4和7结尾的手机号"><a href="#90、正则匹配不是以4和7结尾的手机号" class="headerlink" title="90、正则匹配不是以4和7结尾的手机号"></a>90、正则匹配不是以4和7结尾的手机号</h2><pre><code>tels =  [&quot;13100001234&quot;,&quot;18912344321&quot;,&quot;10086&quot;,&quot;18800007777&quot;]
+for tel in tels:
+    ret = re.match(&quot;1\d{9}[0-3,5-6,8-9]&quot;,tel)
+    if ret:
+        print (&quot;想要的结果&quot;, ret.group())
+    else:
+        print (&quot;%s 不是想要的手机号&quot;%tel)
+13100001234 不是想要的手机号
+想要的结果 18912344321
+10086 不是想要的手机号
+18800007777 不是想要的手机号
+</code></pre><h2 id="91、简述python引用计数机制"><a href="#91、简述python引用计数机制" class="headerlink" title="91、简述python引用计数机制"></a>91、简述python引用计数机制</h2><p>python垃圾回收主要以引用计数为主，标记-清除和分代清除为辅的机制，其中标记-清除和分代回收主要是为了处理循环引用的难题。 引用计数算法</p>
+<p>当有1个变量保存了对象的引用时，此对象的引用计数就会加1</p>
+<p>当使用del删除变量指向的对象时，如果对象的引用计数不为1，比如3，那么此时只会让这个引用计数减1，即变为2，当再次调用del时，变为1，如果再调用1次del，此时会真的把对象进行删除</p>
+<pre><code>import time
+class Animal(object):
+    def __init__(self,name):
+        print (&quot;__init__方法被调用&quot;)
+        self.__name = name
+    def __del__(self):
+        print (&quot;__del__方法被调用&quot;)
+        print (&quot;%s 对象马上被干掉了...&quot;%self.__name)
+​
+cat = Animal (&quot;波斯猫&quot;)
+cat2= cat
+cat3 = cat
+print (id(cat),id(cat2),id(cat3))
+print (&quot;---马上删除 cat 对象&quot;)
+del cat
+print (&quot;---马上删除 cat2 对象&quot;)
+del cat2
+print (&quot;---马上删除 cat3 对象&quot;)
+del cat3
+print (&quot;程序2秒钟后结束&quot;)
+time.sleep(2)
+print (&quot;程序结束了&quot;)
+
+__init__方法被调用
+100580824 100580824 100580824
+---马上删除 cat 对象
+---马上删除 cat2 对象
+---马上删除 cat3 对象
+__del__方法被调用
+波斯猫 对象马上被干掉了...
+程序2秒钟后结束
+程序结束了
+</code></pre><h2 id="92、int-“1-4”-int-1-4-输出结果？"><a href="#92、int-“1-4”-int-1-4-输出结果？" class="headerlink" title="92、int(“1.4”),int(1.4)输出结果？"></a>92、int(“1.4”),int(1.4)输出结果？</h2><pre><code>​
+int(&quot;1.4&quot;)报错，int(1.4)输出1
+
+print (int(1.4))
+print (int (&quot;1.4&quot;))
+1
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+&lt;ipython-input-72-ef99dee2cd6f&gt; in &lt;module&gt;()
+      1 print (int(1.4))
+----&gt; 2 print (int (&quot;1.4&quot;))
+
+ValueError: invalid literal for int() with base 10: &apos;1.4&apos;
+</code></pre><h2 id="93、列举3条以上PEP8编码规范"><a href="#93、列举3条以上PEP8编码规范" class="headerlink" title="93、列举3条以上PEP8编码规范"></a>93、列举3条以上PEP8编码规范</h2><p>1、顶级定义之间空两行，比如函数或者类定义。</p>
+<p>2、方法定义、类定义与第一个方法之间，都应该空一行</p>
+<p>3、三引号进行注释</p>
+<p>4、使用Pycharm、Eclipse一般使用4个空格来缩进代码</p>
+<h2 id="94、正则表达式匹配第一个URL"><a href="#94、正则表达式匹配第一个URL" class="headerlink" title="94、正则表达式匹配第一个URL"></a>94、正则表达式匹配第一个URL</h2><p>findall结果无需加group(),search需要加group()提取</p>
+<pre><code>s = &apos;&lt;img data-ordd=&quot;https://rpic.com.cn/ima.jpg&quot; scr=&quot;http://www.baidu.com/j1.jpg&quot; stple=&quot;display&quot;&gt;&apos;
+res = re.findall(r&quot;https://.*?\.jpg&quot;,s)[0]
+print (res)
+res = re.search (r&quot;https://.*?\.jpg&quot;,s)
+print (res.group())
+https://rpic.com.cn/ima.jpg
+https://rpic.com.cn/ima.jpg
+</code></pre><h2 id="95、正则匹配中文"><a href="#95、正则匹配中文" class="headerlink" title="95、正则匹配中文"></a>95、正则匹配中文</h2><pre><code>title = &quot;你好 hello,，世界。&quot;
+pattern = re.compile(r&apos;[\u4e00-\u9fa5]+&apos;)
+result = pattern.findall(title)
+print (result)
+[&apos;你好&apos;, &apos;世界&apos;]
+</code></pre><h2 id="96、简述乐观锁和悲观锁"><a href="#96、简述乐观锁和悲观锁" class="headerlink" title="96、简述乐观锁和悲观锁"></a>96、简述乐观锁和悲观锁</h2><p>悲观锁, 就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会block直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。</p>
+<p>乐观锁，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制，乐观锁适用于多读的应用类型，这样可以提高吞吐量</p>
+<h2 id="97、r、r-、rb、rb-文件打开模式区别"><a href="#97、r、r-、rb、rb-文件打开模式区别" class="headerlink" title="97、r、r+、rb、rb+文件打开模式区别"></a>97、r、r+、rb、rb+文件打开模式区别</h2><p>模式较多，比较下背背记记即可<br><img src="http://prud1ioef.bkt.clouddn.com/20190527/J02.jpg" alt="图片"></p>
+<h2 id="98、Linux命令重定向-gt-和-gt-gt"><a href="#98、Linux命令重定向-gt-和-gt-gt" class="headerlink" title="98、Linux命令重定向 &gt; 和 &gt;&gt;"></a>98、Linux命令重定向 &gt; 和 &gt;&gt;</h2><p>Linux 允许将命令执行结果 重定向到一个 文件</p>
+<p>将本应显示在终端上的内容 输出／追加 到指定文件中</p>
+<p>表示输出，会覆盖文件原有的内容</p>
+<p>表示追加，会将内容追加到已有文件的末尾</p>
+<p>用法示例：</p>
+<p>将 echo 输出的信息保存到 1.txt 里echo Hello Python &gt; 1.txt<br>将 tree 输出的信息追加到 1.txt 文件的末尾tree &gt;&gt; 1.txt</p>
+<h2 id="99、正则表达式匹配出"><a href="#99、正则表达式匹配出" class="headerlink" title="99、正则表达式匹配出"></a>99、正则表达式匹配出</h2><p><a href="http://www.itcast.cn" target="_blank" rel="noopener">http://www.itcast.cn</a><br>前面的&lt;&gt;和后面的&lt;&gt;是对应的，可以用此方法</p>
+<pre><code>labels = [&quot;&lt;html&gt;&lt;h1&gt;http://www.itcast.cn&lt;/h1&gt;&lt;/html&gt;&quot;,&quot;&lt;html&gt;&lt;h1&gt;http://www.itcast.cn&lt;/h2&gt;&lt;/html&gt;&quot;]
+for label in labels:
+    ret = re.match (r&quot;&lt;(\w*)&gt;&lt;(\w*)&gt;.*?&lt;/\2&gt;&lt;/\1&gt;&quot;,label)
+    if ret:
+        print (&quot;%s 是符合要求的标签&quot;%ret.group())
+    else:
+        print (&quot;%s 不符合要求&quot;%label)
+​
+&lt;html&gt;&lt;h1&gt;http://www.itcast.cn&lt;/h1&gt;&lt;/html&gt; 是符合要求的标签
+&lt;html&gt;&lt;h1&gt;http://www.itcast.cn&lt;/h2&gt;&lt;/html&gt; 不符合要求
+</code></pre><h2 id="100、python传参数是传值还是传址？"><a href="#100、python传参数是传值还是传址？" class="headerlink" title="100、python传参数是传值还是传址？"></a>100、python传参数是传值还是传址？</h2><p>Python中函数参数是引用传递（注意不是值传递）。对于不可变类型（数值型、字符串、元组），因变量不能修改，所以运算不会影响到变量自身；而对于可变类型（列表字典）来说，函数体运算可能会更改传入的参数变量。</p>
+<pre><code>def selfadd(a):
+    a+=a
+a_int =1 
+print (a_int)
+selfadd(a_int)
+print (a_int)
+​
+a_list =[1,2]
+print (a_list)
+selfadd(a_list)
+print(a_list)
+1
+1
+[1, 2]
+[1, 2, 1, 2]
+</code></pre><h2 id="101、求两个列表的交集、差集、并集"><a href="#101、求两个列表的交集、差集、并集" class="headerlink" title="101、求两个列表的交集、差集、并集"></a>101、求两个列表的交集、差集、并集</h2><pre><code>#这个程序运行报错
+a =  [1,2,3,4]
+b= [4,3,5,6]
+jj1 = [i for i in a if i in b]
+print (&quot;交集&quot;,jj1)
+# jj2 = list (set(a).intersection(set(b)))
+​
+# bj1= list(set(a).union(set(b)))
+# cj1 = list (set(b).difference(set(a)))
+# cj2 = list (set(a).difference(set(b)))
+​
+# print (&quot;交集&quot;,jj1)
+# print (&quot;交集&quot;,jj2)
+​
+# print (&quot;并集&quot;,bj1)
+# print (&quot;差集&quot;,cj1)
+# print (&quot;差集&quot;,cj2)
+交集 [3, 4]
+</code></pre><h2 id="102、生成0-100的随机数"><a href="#102、生成0-100的随机数" class="headerlink" title="102、生成0-100的随机数"></a>102、生成0-100的随机数</h2><pre><code>random.random()生成0-1之间的随机小数，所以乘以100
+
+
+import random
+res1= 100*random.random() #随机小数
+res2 = random.choice(range(0,101)) #随机整数
+res3 = random.randint(1,100) #随机整数
+print (res1)
+print (res2)
+print (res3)
+15.170417345442866
+21
+36
+</code></pre><h2 id="103、lambda匿名函数好处"><a href="#103、lambda匿名函数好处" class="headerlink" title="103、lambda匿名函数好处"></a>103、lambda匿名函数好处</h2><p>精简代码，lambda省去了定义函数，map省去了写for循环过程</p>
+<pre><code>a = [&quot;苏州&quot;,&quot;中国&quot;,&quot;哈哈&quot;,&quot;&quot;,&quot;&quot;,&quot;日本&quot;,&quot;德国&quot;]
+res = map(lambda x:&quot;填充值&quot; if x==&quot;&quot; else x, a)
+print (res)
+res=list(res)
+print (res)
+&lt;map object at 0x00000000048B26A0&gt;
+[&apos;苏州&apos;, &apos;中国&apos;, &apos;哈哈&apos;, &apos;填充值&apos;, &apos;填充值&apos;, &apos;日本&apos;, &apos;德国&apos;]
+</code></pre><h2 id="104、常见的网络传输协议"><a href="#104、常见的网络传输协议" class="headerlink" title="104、常见的网络传输协议"></a>104、常见的网络传输协议</h2><p>UDP、TCP、FTP、HTTP、SMTP等等</p>
+<h2 id="105、单引号、双引号、三引号用法"><a href="#105、单引号、双引号、三引号用法" class="headerlink" title="105、单引号、双引号、三引号用法"></a>105、单引号、双引号、三引号用法</h2><p>1、单引号和双引号没有什么区别，不过单引号不用按shift，打字稍微快一点。表示字符串的时候，单引号里面可以用双引号，而不用转义字符,反之亦然。</p>
+<p>‘She said:”Yes.” ‘ or “She said: ‘Yes.’ “<br>2、但是如果直接用单引号扩住单引号，则需要转义，像这样：</p>
+<p> ‘ She said:\’Yes.\’ ‘<br>3、三引号可以直接书写多行，通常用于大段，大篇幅的字符串</p>
+<p>“””<br>hello<br>world<br>“”” </p>
+<h2 id="106、python垃圾回收机制"><a href="#106、python垃圾回收机制" class="headerlink" title="106、python垃圾回收机制"></a>106、python垃圾回收机制</h2><p>python垃圾回收主要以引用计数为主，标记-清除和分代清除为辅的机制，其中标记-清除和分代回收主要是为了处理循环引用的难题。</p>
+<p>引用计数算法 当有1个变量保存了对象的引用时，此对象的引用计数就会加1</p>
+<p>当使用del删除变量指向的对象时，如果对象的引用计数不为1，比如3，那么此时只会让这个引用计数减1，即变为2，当再次调用del时，变为1，如果再调用1次del，此时会真的把对象进行删除</p>
+<p>例子见前面91</p>
+<h2 id="107、HTTP请求中get和post区别"><a href="#107、HTTP请求中get和post区别" class="headerlink" title="107、HTTP请求中get和post区别"></a>107、HTTP请求中get和post区别</h2><p>1、GET请求是通过URL直接请求数据，数据信息可以在URL中直接看到，比如浏览器访问；而POST请求是放在请求头中的，我们是无法直接看到的；</p>
+<p>2、GET提交有数据大小的限制，一般是不超过1024个字节，而这种说法也不完全准确，HTTP协议并没有设定URL字节长度的上限，而是浏览器做了些处理，所以长度依据浏览器的不同有所不同；POST请求在HTTP协议中也没有做说明，一般来说是没有设置限制的，但是实际上浏览器也有默认值。总体来说，少量的数据使用GET，大量的数据使用POST。</p>
+<p>3、GET请求因为数据参数是暴露在URL中的，所以安全性比较低，比如密码是不能暴露的，就不能使用GET请求；POST请求中，请求参数信息是放在请求头的，所以安全性较高，可以使用。在实际中，涉及到登录操作的时候，尽量使用HTTPS请求，安全性更好。</p>
+<h2 id="108、python中读取Excel文件的方法"><a href="#108、python中读取Excel文件的方法" class="headerlink" title="108、python中读取Excel文件的方法"></a>108、python中读取Excel文件的方法</h2><p>应用数据分析库pandas</p>
+<p>import pandas as pd<br>df = pd.read_excel(“333.xlsx”)<br>print (df)<br>​</p>
+<h2 id="109、简述多线程、多进程"><a href="#109、简述多线程、多进程" class="headerlink" title="109、简述多线程、多进程"></a>109、简述多线程、多进程</h2><p>进程：</p>
+<p>1、操作系统进行资源分配和调度的基本单位，多个进程之间相互独立</p>
+<p>2、稳定性好，如果一个进程崩溃，不影响其他进程，但是进程消耗资源大，开启的进程数量有限制</p>
+<p>线程：</p>
+<p>1、CPU进行资源分配和调度的基本单位，线程是进程的一部分，是比进程更小的能独立运行的基本单位，一个进程下的多个线程可以共享该进程的所有资源</p>
+<p>2、如果IO操作密集，则可以多线程运行效率高，缺点是如果一个线程崩溃，都会造成进程的崩溃</p>
+<p>应用：</p>
+<p>IO密集的用多线程，在用户输入，sleep 时候，可以切换到其他线程执行，减少等待的时间</p>
+<p>CPU密集的用多进程，因为假如IO操作少，用多线程的话，因为线程共享一个全局解释器锁，当前运行的线程会霸占GIL，其他线程没有GIL，就不能充分利用多核CPU的优势</p>
+<h2 id="110、python正则中search和match"><a href="#110、python正则中search和match" class="headerlink" title="110、python正则中search和match"></a>110、python正则中search和match</h2><pre><code>import re
+s = &quot;小明年龄18岁，工资10000&quot;
+res = re.search(r&quot;\d+&quot;,s).group()  #search匹配到第一个匹配到的数据
+print (&quot;search结果&quot;,res)
+​
+res = re.findall(r&quot;\d+&quot;,s)  #findall 满足正则，都匹配，不用加group
+print (&quot;findall结果&quot;,res)
+​
+res = re.match(&quot;小明&quot;,s)  #匹配小明开头的字符品，并匹配出小明
+print (&quot;match结果&quot;,res)
+​
+res = re.match(r&quot;\d+&quot;,s)  #不加group是不对的
+print (&quot;试错，不加group为none，匹配不到&quot;,res)
+​
+res = re.match(&quot;工资&quot;,s).group()  #工资不是字符串开头，匹配不错，报错
+print (&quot;match+group结果&quot;,res)
+​
+search结果 18
+findall结果 [&apos;18&apos;, &apos;10000&apos;]
+match结果 &lt;_sre.SRE_Match object; span=(0, 2), match=&apos;小明&apos;&gt;
+试错，不加group为none，匹配不到 None
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+&lt;ipython-input-3-f398b1c3b26b&gt; in &lt;module&gt;()
+     13 print (&quot;试错，不加group为none，匹配不到&quot;,res)
+     14 
+---&gt; 15 res = re.match(&quot;工资&quot;,s).group()  #不加group是不对的
+     16 print (&quot;match+group结果&quot;,res)
+
+AttributeError: &apos;NoneType&apos; object has no attribute &apos;group&apos;
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/面试题/" rel="tag"># 面试题</a>
+          
+            <a href="/tags/基础知识/" rel="tag"># 基础知识</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/27/python面试110题（一）/" rel="next" title="python面试110题（一）">
+                <i class="fa fa-chevron-left"></i> python面试110题（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Marvin Cai</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#51、正则匹配，匹配日期2018-03-20"><span class="nav-number">1.</span> <span class="nav-text">51、正则匹配，匹配日期2018-03-20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52、list-2-3-5-4-9-6-，从小到大排序，不许用sort，输出-2-3-4-5-6-9"><span class="nav-number">2.</span> <span class="nav-text">52、list=[2,3,5,4,9,6]，从小到大排序，不许用sort，输出[2,3,4,5,6,9]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53、写一个单列模式"><span class="nav-number">3.</span> <span class="nav-text">53、写一个单列模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#54、保留两位小数"><span class="nav-number">4.</span> <span class="nav-text">54、保留两位小数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55、求三个方法打印结果"><span class="nav-number">5.</span> <span class="nav-text">55、求三个方法打印结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56、列出常见的状态码和意义"><span class="nav-number">6.</span> <span class="nav-text">56、列出常见的状态码和意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#57、分别从前端、后端、数据库阐述web项目的性能优化"><span class="nav-number">7.</span> <span class="nav-text">57、分别从前端、后端、数据库阐述web项目的性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#58、使用pop和del删除字典中的”name”字段，dic-“name”-”zs”-”age”-18"><span class="nav-number">8.</span> <span class="nav-text">58、使用pop和del删除字典中的”name”字段，dic={“name”:”zs”,”age”:18}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#59、列出常见MYSQL数据存储引擎"><span class="nav-number">9.</span> <span class="nav-text">59、列出常见MYSQL数据存储引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#60、计算代码运行结果，zip函数历史文章已经说了，得出-“a”-1-“b”-2-，-“c”-3-“d”-4-“e”-5"><span class="nav-number">10.</span> <span class="nav-text">60、计算代码运行结果，zip函数历史文章已经说了，得出[(“a”,1),(“b”,2)，(“c”,3),(“d”,4),(“e”,5)]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#61、简述同源策略"><span class="nav-number">11.</span> <span class="nav-text">61、简述同源策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62、简述cookie和session的区别"><span class="nav-number">12.</span> <span class="nav-text">62、简述cookie和session的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63、简述多线程、多进程"><span class="nav-number">13.</span> <span class="nav-text">63、简述多线程、多进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64、简述any-和all-方法"><span class="nav-number">14.</span> <span class="nav-text">64、简述any()和all()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常"><span class="nav-number">15.</span> <span class="nav-text">65、IOError、AttributeError、ImportError、IndentationError、IndexError、KeyError、SyntaxError、NameError分别代表什么异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#66、python中copy和deepcopy区别"><span class="nav-number">16.</span> <span class="nav-text">66、python中copy和deepcopy区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#67、列出几种魔法方法并简要介绍用途"><span class="nav-number">17.</span> <span class="nav-text">67、列出几种魔法方法并简要介绍用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#68、C-Users-ry-wu-junya-Desktop-gt-python-1-py-22-33命令行启动程序并传参，print-sys-argv-会输出什么数据？"><span class="nav-number">18.</span> <span class="nav-text">68、C:\Users\ry-wu.junya\Desktop&gt;python 1.py 22 33命令行启动程序并传参，print(sys.argv)会输出什么数据？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#69、请将-i-for-i-in-range-3-改成生成器"><span class="nav-number">19.</span> <span class="nav-text">69、请将[i for i in range(3)]改成生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#71、举例sort和sorted对列表排序，list-0-1-3-10-5-9"><span class="nav-number">20.</span> <span class="nav-text">71、举例sort和sorted对列表排序，list=[0,-1,3,-10,5,9]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#72、对list排序foo-5-8-0-4-9-4-20-2-8-2-4-使用lambda函数从小到大排序"><span class="nav-number">21.</span> <span class="nav-text">72、对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4],使用lambda函数从小到大排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#73、使用lambda函数对list排序foo-5-8-0-4-9-4-20-2-8-2-4-，输出结果为"><span class="nav-number">22.</span> <span class="nav-text">73、使用lambda函数对list排序foo = [-5,8,0,4,9,-4,-20,-2,8,2,-4]，输出结果为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#74、列表嵌套字典的排序，分别根据年龄和姓名排序"><span class="nav-number">23.</span> <span class="nav-text">74、列表嵌套字典的排序，分别根据年龄和姓名排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#76、列表嵌套列表排序，年龄数字相同怎么办？"><span class="nav-number">24.</span> <span class="nav-text">76、列表嵌套列表排序，年龄数字相同怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#77、根据键对字典排序（方法一，zip函数）"><span class="nav-number">25.</span> <span class="nav-text">77、根据键对字典排序（方法一，zip函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#78、根据键对字典排序（方法二-不用zip"><span class="nav-number">26.</span> <span class="nav-text">78、根据键对字典排序（方法二,不用zip)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#79、列表推导式、字典推导式、生成器"><span class="nav-number">27.</span> <span class="nav-text">79、列表推导式、字典推导式、生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用"><span class="nav-number">28.</span> <span class="nav-text">80、最后出一道检验题目，根据字符串长度排序，看排序是否灵活运用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#81、举例说明SQL注入和解决办法"><span class="nav-number">29.</span> <span class="nav-text">81、举例说明SQL注入和解决办法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#82、s-”info-xiaoZhang-33-shandong”-用正则切分字符串输出-‘info’-‘xiaoZhang’-‘33’-‘shandong’"><span class="nav-number">30.</span> <span class="nav-text">82、s=”info:xiaoZhang 33 shandong”,用正则切分字符串输出[‘info’, ‘xiaoZhang’, ‘33’, ‘shandong’]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#83、正则匹配以http-163-com结尾的邮箱"><span class="nav-number">31.</span> <span class="nav-text">83、正则匹配以http://163.com结尾的邮箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#84、递归求和"><span class="nav-number">32.</span> <span class="nav-text">84、递归求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#85、python字典和json字符串相互转化方法"><span class="nav-number">33.</span> <span class="nav-text">85、python字典和json字符串相互转化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#86、MyISAM-与-InnoDB-区别："><span class="nav-number">34.</span> <span class="nav-text">86、MyISAM 与 InnoDB 区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#87、统计字符串中某字符出现次数"><span class="nav-number">35.</span> <span class="nav-text">87、统计字符串中某字符出现次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#88、字符串转化大小写"><span class="nav-number">36.</span> <span class="nav-text">88、字符串转化大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#89、用两种方法去空格"><span class="nav-number">37.</span> <span class="nav-text">89、用两种方法去空格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#90、正则匹配不是以4和7结尾的手机号"><span class="nav-number">38.</span> <span class="nav-text">90、正则匹配不是以4和7结尾的手机号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#91、简述python引用计数机制"><span class="nav-number">39.</span> <span class="nav-text">91、简述python引用计数机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#92、int-“1-4”-int-1-4-输出结果？"><span class="nav-number">40.</span> <span class="nav-text">92、int(“1.4”),int(1.4)输出结果？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#93、列举3条以上PEP8编码规范"><span class="nav-number">41.</span> <span class="nav-text">93、列举3条以上PEP8编码规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#94、正则表达式匹配第一个URL"><span class="nav-number">42.</span> <span class="nav-text">94、正则表达式匹配第一个URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#95、正则匹配中文"><span class="nav-number">43.</span> <span class="nav-text">95、正则匹配中文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#96、简述乐观锁和悲观锁"><span class="nav-number">44.</span> <span class="nav-text">96、简述乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#97、r、r-、rb、rb-文件打开模式区别"><span class="nav-number">45.</span> <span class="nav-text">97、r、r+、rb、rb+文件打开模式区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#98、Linux命令重定向-gt-和-gt-gt"><span class="nav-number">46.</span> <span class="nav-text">98、Linux命令重定向 &gt; 和 &gt;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#99、正则表达式匹配出"><span class="nav-number">47.</span> <span class="nav-text">99、正则表达式匹配出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#100、python传参数是传值还是传址？"><span class="nav-number">48.</span> <span class="nav-text">100、python传参数是传值还是传址？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#101、求两个列表的交集、差集、并集"><span class="nav-number">49.</span> <span class="nav-text">101、求两个列表的交集、差集、并集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#102、生成0-100的随机数"><span class="nav-number">50.</span> <span class="nav-text">102、生成0-100的随机数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#103、lambda匿名函数好处"><span class="nav-number">51.</span> <span class="nav-text">103、lambda匿名函数好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#104、常见的网络传输协议"><span class="nav-number">52.</span> <span class="nav-text">104、常见的网络传输协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#105、单引号、双引号、三引号用法"><span class="nav-number">53.</span> <span class="nav-text">105、单引号、双引号、三引号用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#106、python垃圾回收机制"><span class="nav-number">54.</span> <span class="nav-text">106、python垃圾回收机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#107、HTTP请求中get和post区别"><span class="nav-number">55.</span> <span class="nav-text">107、HTTP请求中get和post区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#108、python中读取Excel文件的方法"><span class="nav-number">56.</span> <span class="nav-text">108、python中读取Excel文件的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#109、简述多线程、多进程"><span class="nav-number">57.</span> <span class="nav-text">109、简述多线程、多进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#110、python正则中search和match"><span class="nav-number">58.</span> <span class="nav-text">110、python正则中search和match</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marvin Cai</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
