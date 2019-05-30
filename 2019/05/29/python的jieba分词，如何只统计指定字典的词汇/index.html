@@ -96,21 +96,20 @@
 
 
 
-  <meta name="description" content="安装git安装命令： yum –y install git 查询是否成功命令： git version  在github上注册账号在github上新建一个名为 你的用户名.github.io 的仓库 像我的github用户名是oldmarvin，就新建 oldmarvin.github.io 的仓库，这里强调必须是按照这样的格式命名，其它名称无效），将来你的网站访问地址就是 http://oldm">
-<meta name="keywords" content="centos,hexo,nginx,next,github">
+  <meta name="description" content="应用情景：在某些专业领域的文章中，如医学领域。只想统计指定词汇的出现次数或权重。解决问题的思路和步骤如下： 使用python的jieba分司引入python的jieba分析，这个使用过jieba分词的应该都清楚。 使用词频统计函数jieba 词频统计的函数是 jieba.analyse.extract_tags ，因为是在医学领域，需要医学的词汇： jieba.analyse.set_idf_pa">
+<meta name="keywords" content="python,jieba,自定义字典,逆文件频率（IDF）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos系统下Hexo+github+next搭建个人博客二：git的基本操作">
-<meta property="og:url" content="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客二：git的基本操作/index.html">
+<meta property="og:title" content="python的jieba分词，如何只统计指定字典的词汇">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/python的jieba分词，如何只统计指定字典的词汇/index.html">
 <meta property="og:site_name" content="Marvin&#39;s blog">
-<meta property="og:description" content="安装git安装命令： yum –y install git 查询是否成功命令： git version  在github上注册账号在github上新建一个名为 你的用户名.github.io 的仓库 像我的github用户名是oldmarvin，就新建 oldmarvin.github.io 的仓库，这里强调必须是按照这样的格式命名，其它名称无效），将来你的网站访问地址就是 http://oldm">
+<meta property="og:description" content="应用情景：在某些专业领域的文章中，如医学领域。只想统计指定词汇的出现次数或权重。解决问题的思路和步骤如下： 使用python的jieba分司引入python的jieba分析，这个使用过jieba分词的应该都清楚。 使用词频统计函数jieba 词频统计的函数是 jieba.analyse.extract_tags ，因为是在医学领域，需要医学的词汇： jieba.analyse.set_idf_pa">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J02.JPG">
-<meta property="og:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J04.JPG">
-<meta property="og:updated_time" content="2019-05-23T01:59:17.630Z">
+<meta property="og:image" content="https://img.niucodata.com/slck.png">
+<meta property="og:updated_time" content="2019-05-30T09:38:25.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos系统下Hexo+github+next搭建个人博客二：git的基本操作">
-<meta name="twitter:description" content="安装git安装命令： yum –y install git 查询是否成功命令： git version  在github上注册账号在github上新建一个名为 你的用户名.github.io 的仓库 像我的github用户名是oldmarvin，就新建 oldmarvin.github.io 的仓库，这里强调必须是按照这样的格式命名，其它名称无效），将来你的网站访问地址就是 http://oldm">
-<meta name="twitter:image" content="http://prud1ioef.bkt.clouddn.com/20190522/J02.JPG">
+<meta name="twitter:title" content="python的jieba分词，如何只统计指定字典的词汇">
+<meta name="twitter:description" content="应用情景：在某些专业领域的文章中，如医学领域。只想统计指定词汇的出现次数或权重。解决问题的思路和步骤如下： 使用python的jieba分司引入python的jieba分析，这个使用过jieba分词的应该都清楚。 使用词频统计函数jieba 词频统计的函数是 jieba.analyse.extract_tags ，因为是在医学领域，需要医学的词汇： jieba.analyse.set_idf_pa">
+<meta name="twitter:image" content="https://img.niucodata.com/slck.png">
 
 
 
@@ -118,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客二：git的基本操作/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/29/python的jieba分词，如何只统计指定字典的词汇/">
 
 
 
@@ -128,7 +127,7 @@
   };
 </script>
 
-  <title>Centos系统下Hexo+github+next搭建个人博客二：git的基本操作 | Marvin's blog</title>
+  <title>python的jieba分词，如何只统计指定字典的词汇 | Marvin's blog</title>
   
 
 
@@ -293,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/22/Centos系统下Hexo+github+next搭建个人博客二：git的基本操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/29/python的jieba分词，如何只统计指定字典的词汇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Marvin Cai">
@@ -310,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos系统下Hexo+github+next搭建个人博客二：git的基本操作
+          <h1 class="post-title" itemprop="name headline">python的jieba分词，如何只统计指定字典的词汇
 
               
             
@@ -336,7 +335,7 @@
                 
               
 
-              <time title="Created: 2019-05-22 16:02:09" itemprop="dateCreated datePublished" datetime="2019-05-22T16:02:09+08:00">2019-05-22</time>
+              <time title="Created: 2019-05-29 10:02:09" itemprop="dateCreated datePublished" datetime="2019-05-29T10:02:09+08:00">2019-05-29</time>
             
 
             
@@ -353,7 +352,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-23 09:59:17" itemprop="dateModified" datetime="2019-05-23T09:59:17+08:00">2019-05-23</time>
+                <time title="Modified: 2019-05-30 17:38:25" itemprop="dateModified" datetime="2019-05-30T17:38:25+08:00">2019-05-30</time>
               
             
           </span>
@@ -387,74 +386,43 @@
       
 
       
-        <h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>安装命令：</p>
-<pre><code>yum –y install git
-</code></pre><p>查询是否成功命令：</p>
-<pre><code>git version
-</code></pre><p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J02.JPG" alt="git检查"></p>
-<h2 id="在github上注册账号"><a href="#在github上注册账号" class="headerlink" title="在github上注册账号"></a>在github上注册账号</h2><p>在github上新建一个名为 <code>你的用户名.github.io 的仓库</code></p>
-<p>像我的github用户名是<code>oldmarvin</code>，就新建 <code>oldmarvin.github.io</code> 的仓库，这里强调必须是按照这样的格式命名，其它名称无效），将来你的网站访问地址就是 <code>http://oldmarvin.github.io</code> 了。由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
-<h2 id="配置sshkey，使git可以上传"><a href="#配置sshkey，使git可以上传" class="headerlink" title="配置sshkey，使git可以上传"></a>配置sshkey，使git可以上传</h2><p>配置Github的SSH密钥可以让本地git项目与远程的github建立联系，让我们在本地写了代码之后直接通过git操作就可以实现本地代码库与Github代码库同步。操作如下：</p>
-<p>1、看看是否存在SSH密钥(keys)，在centos上运行</p>
-<pre><code>$ cd ~/. ssh 
-</code></pre><p>如果能够进入目录说明本机上已经有sshkey，否则需要创建一个</p>
-<p>2、生成ssh-key，填入自己的邮箱</p>
-<pre><code>ssh-keygen -t rsa -C &quot;xxxxxx@sina.com&quot;
-</code></pre><p>中间需要按三次回车确认。</p>
-<p>3、在GitHub账户中添加你的公钥</p>
-<p>运行如下命令，将公钥的内容复制出来。</p>
-<pre><code>cd ~/.ssh
-ls
-cat id_rsa.pub
-</code></pre><p>如果你是在xshell中运行命令，可以按住 <code>ctrl+insert</code> 进行复制。</p>
-<p>4、接着，登陆GitHub,进入你的Account Settings，选择SSH Keys，粘贴密钥，添加即可</p>
-<p><img src="http://prud1ioef.bkt.clouddn.com/20190522/J04.JPG" alt="sshkey设置"></p>
-<p>5、测试是否配置成功</p>
-<pre><code>ssh -T git@github.com
-</code></pre><p>这个命令不需要修改，直接打进去就好。</p>
-<pre><code>[root@iZuf60c5nb7ulqwzl2jwbsZ .ssh]# ssh -T git@github.com
-The authenticity of host &apos;github.com (13.229.188.59)&apos; can&apos;t be established.
-RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-RSA key fingerprint is MD5:16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added &apos;github.com,13.229.188.59&apos; (RSA) to the list of known hosts.
-Hi olamarvin! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
-</code></pre><p>中间需要键入一次<code>yes</code>，出现这个打招呼届面就是成功了。</p>
-<h2 id="基本的git操作"><a href="#基本的git操作" class="headerlink" title="基本的git操作"></a>基本的git操作</h2><p>1、远程下载别人的git代码</p>
-<pre><code>git clone https://github.com/theme-next/hexo-theme-next themes/next
-</code></pre><p>2、设置本地的git账号用户名</p>
-<p>输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字根据自己的喜好自己取，而不是GitHub的昵称。</p>
-<pre><code>$ git config --global user.name &quot;oldmarvin&quot; //用户名
-$ git config --global user.email  &quot;marvincai@sina.com&quot;//填写自己的邮箱
-</code></pre><p>在本次试验之中，对于将hexo部署在gitpage中，只需要打入</p>
-<pre><code>hexo -d
-</code></pre><p>系统会提示输入用户名与密码，这样输入完之后，就可以将代码上传。</p>
-<p>3、git的基本操作</p>
-<p>Git在未进行commit操作之前，存在三种状态：Untracked files，Changes not staged for commit及Changes to be committed，每种状态之间可以随意进行互相转换。</p>
-<p>查看状态</p>
-<pre><code>git status
-</code></pre><p>前进至：Changes to be committed</p>
-<pre><code>git add hello.c
-</code></pre><p>后退至“Untracked files”文件状态</p>
-<pre><code>git rm --cached hello.c
-</code></pre><p>修改文件更新到暂存区<br>    git add hello.c</p>
-<p>撤销修改<br>    git checkout – hello.c</p>
-<p>针对一个文件的修改你最终改完执行add，再commit<br>    git add hello.c<br>    git commit -m “add hello.c file”</p>
-<p>针对多个文件，你可以执行 git add .（注意add 后边的符号 点）,在git commit -m “”。</p>
-<pre><code>git add . 
-git commit -m &quot;add all files&quot;
-</code></pre><p>修改只有add到暂存区，才会加入到commit，才会提交到分支。</p>
-<p>先查看本地的分支：</p>
-<pre><code>git branch -a
-</code></pre><p>创建一个属于自己的分支，并进行合并：</p>
-<pre><code>git checkout -b 分支名  origin/主分支名
-</code></pre><p>提交到分支</p>
-<p>　　   1）添加到暂存库：git add .</p>
-<p>　　   2）可以通过查看状态看是否存储成功:git status -s</p>
-<p>　　   3）提交代码: git commit -m ‘描述信息’</p>
-<p>　　   4）提交到分支: git push origin 创建的子分支</p>
-<p>但是，需要注意的是，在下一次准备修改代码之前需要先git pull，更新一下代码，避免发生冲突<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">但是，前不久遇到一个问题，就是我忘记建分支了，而且已经在主分支修改了代码，怎么办呢？</span><br><span class="line"></span><br><span class="line">　　　1）进入项目文件夹；</span><br><span class="line"></span><br><span class="line">     2）保存当前的工作进度到暂存区: git stash；</span><br><span class="line"></span><br><span class="line">　　　3）新建一个分支： git checkout -b 分支名 origin/主分支名；</span><br><span class="line"></span><br><span class="line">     4）读取暂存区的内容：git stash apply</span><br><span class="line"></span><br><span class="line">     5）剩下的操作就是同第三步一样</span><br></pre></td></tr></table></figure></p>
+        <p>应用情景：在某些专业领域的文章中，如医学领域。只想统计指定词汇的出现次数或权重。解决问题的思路和步骤如下：</p>
+<h2 id="使用python的jieba分司"><a href="#使用python的jieba分司" class="headerlink" title="使用python的jieba分司"></a>使用python的jieba分司</h2><p>引入python的jieba分析，这个使用过jieba分词的应该都清楚。</p>
+<h2 id="使用词频统计函数"><a href="#使用词频统计函数" class="headerlink" title="使用词频统计函数"></a>使用词频统计函数</h2><p>jieba 词频统计的函数是 jieba.analyse.extract_tags ，因为是在医学领域，需要医学的词汇：</p>
+<pre><code>jieba.analyse.set_idf_path(&apos;dic_for_idf.txt&apos;) #配置自定义字典
+tags = jieba.analyse.extract_tags(content, topK=200, withWeight=True)
+</code></pre><p>但这样出现的结果很混乱，因为虽然配置了词频的字典，但是分词的时候会产生许多字典之外的词，他们也有权重，而且这些通用词出现频率更高，会完全压制自定义字典里的词，导致做词频统计，统计到的都不是自定义字典中。</p>
+<p>所以我接下来加了一行代码，也同时配置了 jieba 分词的字典</p>
+<pre><code>jieba.set_dictionary(&apos;dic_for_use.txt&apos;) #配置自定义字典
+jieba.analyse.set_idf_path(&apos;dic_for_idf.txt&apos;) #配置自定义字典
+tags = jieba.analyse.extract_tags(content, topK=200, withWeight=True)
+</code></pre><p>但还是不行，网上找了资料，发现 jieba 其实还有新词发现功能，需要关闭隐马尔科夫模型，虽然jieba.cut可以配置隐马尔科夫模型的开关，但我调用的jieba.analyse.extract_tags却并没有这个参数，因此我只能修改 jieba 的源码，手动把 隐马尔科夫模型（HMM）给关闭了。</p>
+<h2 id="关闭隐马尔科夫模型"><a href="#关闭隐马尔科夫模型" class="headerlink" title="关闭隐马尔科夫模型"></a>关闭隐马尔科夫模型</h2><p>修改文件：jieba库目录/posseg/init.py，搜索HMM就能找到许多，都改成False即可。一共是有四个地方需要修改。</p>
+<h2 id="如何自定义语义库，即逆文件频率（IDF）"><a href="#如何自定义语义库，即逆文件频率（IDF）" class="headerlink" title="如何自定义语义库，即逆文件频率（IDF）"></a>如何自定义语义库，即逆文件频率（IDF）</h2><p>jieba分词在基于TF-IDF进行特征提取时，因为文本背景是某一具体行业，不适合使用通用的IDF语料库，更多应该使用自定义的基于该行业背景的IDF语料库。请问如何生成自定义IDF语料库呢？</p>
+<p>以医学的案例为例子，来说明生成案例的过程。</p>
+<p>1、使用<a href="https://pinyin.sogou.com/dict/cate/index/132/download/9" target="_blank" rel="noopener">搜狗的词库</a>。</p>
+<p>2、下载相应的词库文件。例如下载出来<code>人体穴位名称【官方推荐】.scel</code>文件。</p>
+<p>3、使用<code>深蓝词库</code>进行转换。<img src="https://img.niucodata.com/slck.png" alt="深蓝词库"></p>
+<p>4、使用python编程，使转换后的文件生成idf需要的文件。</p>
+<pre><code>ifn = r&quot;穴位.txt&quot;
+ofn = r&quot;dic_for_idf_xw.txt&quot;
+ofn2 = r&quot;dic_for_use_xw.txt&quot;
+infile = open(ifn,&apos;rb&apos;)
+outfile = open(ofn,&apos;w&apos;,encoding=&apos;utf-8&apos;)  #涉及到unicode跟gbk
+outfile2 = open(ofn2,&apos;w&apos;,encoding=&apos;utf-8&apos;)
 
+for eachline in infile.readlines():
+        lines = eachline.strip().decode() #读出来是byte,转为str
+        lines1 = lines+&apos; 100\n&apos;
+        lines2 = lines+&apos; 100 n\n&apos;
+        outfile.write(lines1)
+        outfile2.write(lines2)
+
+infile.close
+outfile.close
+outfile2.close    
+print (&quot;完成转换&quot;)
+</code></pre>
       
     </div>
 
@@ -477,15 +445,13 @@ git commit -m &quot;add all files&quot;
       
         <div class="post-tags">
           
-            <a href="/tags/centos/" rel="tag"># centos</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/jieba/" rel="tag"># jieba</a>
           
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
+            <a href="/tags/自定义字典/" rel="tag"># 自定义字典</a>
           
-            <a href="/tags/next/" rel="tag"># next</a>
-          
-            <a href="/tags/github/" rel="tag"># github</a>
+            <a href="/tags/逆文件频率（IDF）/" rel="tag"># 逆文件频率（IDF）</a>
           
         </div>
       
@@ -498,8 +464,8 @@ git commit -m &quot;add all files&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/22/Centos系统下Hexo+github+next搭建个人博客一：环境准备/" rel="next" title="Centos系统下Hexo+github+next搭建个人博客一：环境准备">
-                <i class="fa fa-chevron-left"></i> Centos系统下Hexo+github+next搭建个人博客一：环境准备
+              <a href="/2019/05/29/查询mysql每个表所占用的空间大小/" rel="next" title="查询mysql每个表所占用的空间大小">
+                <i class="fa fa-chevron-left"></i> 查询mysql每个表所占用的空间大小
               </a>
             
           </div>
@@ -508,8 +474,8 @@ git commit -m &quot;add all files&quot;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/22/Centos系统下Hexo+github+next搭建个人博客三：hexo+nginx博客初现/" rel="prev" title="Centos系统下Hexo+github+next搭建个人博客三：hexo+nginx博客初现">
-                Centos系统下Hexo+github+next搭建个人博客三：hexo+nginx博客初现 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/30/python的pandas如何进行绘图/" rel="prev" title="python的pandas基本操作，如何进行绘图">
+                python的pandas基本操作，如何进行绘图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -666,7 +632,7 @@ git commit -m &quot;add all files&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在github上注册账号"><span class="nav-number">2.</span> <span class="nav-text">在github上注册账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置sshkey，使git可以上传"><span class="nav-number">3.</span> <span class="nav-text">配置sshkey，使git可以上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本的git操作"><span class="nav-number">4.</span> <span class="nav-text">基本的git操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用python的jieba分司"><span class="nav-number">1.</span> <span class="nav-text">使用python的jieba分司</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用词频统计函数"><span class="nav-number">2.</span> <span class="nav-text">使用词频统计函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭隐马尔科夫模型"><span class="nav-number">3.</span> <span class="nav-text">关闭隐马尔科夫模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何自定义语义库，即逆文件频率（IDF）"><span class="nav-number">4.</span> <span class="nav-text">如何自定义语义库，即逆文件频率（IDF）</span></a></li></ol></div>
             
 
           </div>
